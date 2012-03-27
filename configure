@@ -2743,7 +2743,7 @@ ac_config_headers="$ac_config_headers config.h"
 #AC_PROG_INTLTOOL([0.29])
 
 # Dependency checks
-CAJA_REQUIRED=2.16.0
+CAJA_REQUIRED=1.1.0
 GLIB_REQUIRED=2.14.0
 
 # Used programs
