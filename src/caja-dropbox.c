@@ -1,23 +1,23 @@
 /*
  * Copyright 2008 Evenflow, Inc.
  *
- * nautilus-dropbox.c
- * Implements the Nautilus extension API for Dropbox. 
+ * caja-dropbox.c
+ * Implements the Caja extension API for Dropbox. 
  *
- * This file is part of nautilus-dropbox.
+ * This file is part of caja-dropbox.
  *
- * nautilus-dropbox is free software: you can redistribute it and/or modify
+ * caja-dropbox is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * nautilus-dropbox is distributed in the hope that it will be useful,
+ * caja-dropbox is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with nautilus-dropbox.  If not, see <http://www.gnu.org/licenses/>.
+ * along with caja-dropbox.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -37,19 +37,19 @@
 #include <glib-object.h>
 #include <gtk/gtk.h>
 
-#include <libnautilus-extension/nautilus-extension-types.h>
-#include <libnautilus-extension/nautilus-menu-provider.h>
-#include <libnautilus-extension/nautilus-info-provider.h>
+#include <libcaja-extension/caja-extension-types.h>
+#include <libcaja-extension/caja-menu-provider.h>
+#include <libcaja-extension/caja-info-provider.h>
 
 #include "g-util.h"
 #include "dropbox-command-client.h"
-#include "nautilus-dropbox.h"
-#include "nautilus-dropbox-hooks.h"
+#include "caja-dropbox.h"
+#include "caja-dropbox-hooks.h"
 
 static char *emblems[] = {"dropbox-uptodate", "dropbox-syncing", "dropbox-unsyncable"};
 gchar *DEFAULT_EMBLEM_PATHS[2] = { EMBLEMDIR , NULL };
 
-gboolean dropbox_use_nautilus_submenu_workaround;
+gboolean dropbox_use_caja_submenu_workaround;
 gboolean dropbox_use_operation_in_progress_workaround;
 
 static GType dropbox_type = 0;
@@ -99,13 +99,13 @@ canonicalize_path(gchar *path) {
 }
 
 static void
-reset_file(NautilusFileInfo *file) {
+reset_file(CajaFileInfo *file) {
   debug("resetting file %p", (void *) file);
-  nautilus_file_info_invalidate_extension_info(file);
+  caja_file_info_invalidate_extension_info(file);
 }
 
 gboolean
-reset_all_files(NautilusDropbox *cvs) {
+reset_all_files(CajaDropbox *cvs) {
   /* Only run this on the main loop or you'll cause problems. */
 
   /* this works because you can call a function pointer with
@@ -116,7 +116,7 @@ reset_all_files(NautilusDropbox *cvs) {
 
 
 static void
-when_file_dies(NautilusDropbox *cvs, NautilusFileInfo *address) {
+when_file_dies(CajaDropbox *cvs, CajaFileInfo *address) {
   gchar *filename;
 
   filename = g_hash_table_lookup(cvs->obj2filename, address);
@@ -134,14 +134,14 @@ when_file_dies(NautilusDropbox *cvs, NautilusFileInfo *address) {
 }
 
 static void
-changed_cb(NautilusFileInfo *file, NautilusDropbox *cvs) {
+changed_cb(CajaFileInfo *file, CajaDropbox *cvs) {
   /* check if this file's path has changed, if so update the hash and invalidate
      the file */
   gchar *filename, *pfilename;
   gchar *filename2;
   gchar *uri;
 
-  uri = nautilus_file_info_get_uri(file);
+  uri = caja_file_info_get_uri(file);
   pfilename = g_filename_from_uri(uri, NULL, NULL);
   filename = pfilename ? canonicalize_path(pfilename) : NULL;
   filename2 =  g_hash_table_lookup(cvs->obj2filename, file);
@@ -165,7 +165,7 @@ changed_cb(NautilusFileInfo *file, NautilusDropbox *cvs) {
       return;
   }
 
-  /* this is a hack, because nautilus doesn't do this for us, for some reason
+  /* this is a hack, because caja doesn't do this for us, for some reason
      the file's path has changed */
   if (strcmp(filename, filename2) != 0) {
     debug("shifty old: %s, new %s", filename2, filename);
@@ -176,7 +176,7 @@ changed_cb(NautilusFileInfo *file, NautilusDropbox *cvs) {
     g_hash_table_replace(cvs->obj2filename, file, g_strdup(filename));
 
     {
-      NautilusFileInfo *f2;
+      CajaFileInfo *f2;
       /* we shouldn't have another mapping from filename to an object */
       f2 = g_hash_table_lookup(cvs->filename2obj, filename);
       if (f2 != NULL) {
@@ -193,25 +193,25 @@ changed_cb(NautilusFileInfo *file, NautilusDropbox *cvs) {
   g_free(filename);
 }
 
-static NautilusOperationResult
-nautilus_dropbox_update_file_info(NautilusInfoProvider     *provider,
-                                  NautilusFileInfo         *file,
+static CajaOperationResult
+caja_dropbox_update_file_info(CajaInfoProvider     *provider,
+                                  CajaFileInfo         *file,
                                   GClosure                 *update_complete,
-                                  NautilusOperationHandle **handle) {
-  NautilusDropbox *cvs;
+                                  CajaOperationHandle **handle) {
+  CajaDropbox *cvs;
 
-  cvs = NAUTILUS_DROPBOX(provider);
+  cvs = CAJA_DROPBOX(provider);
 
   /* this code adds this file object to our two-way hash of file objects
      so we can shell touch these files later */
   {
     gchar *pfilename, *uri;
 
-    uri = nautilus_file_info_get_uri(file);
+    uri = caja_file_info_get_uri(file);
     pfilename = g_filename_from_uri(uri, NULL, NULL);
     g_free(uri);
     if (pfilename == NULL) {
-      return NAUTILUS_OPERATION_COMPLETE;
+      return CAJA_OPERATION_COMPLETE;
     }
     else {
       int cmp = 0;
@@ -236,13 +236,13 @@ nautilus_dropbox_update_file_info(NautilusInfoProvider     *provider,
 	  g_signal_handlers_disconnect_by_func(file, G_CALLBACK(changed_cb), cvs);
 	}
 	else if (stored_filename == NULL) {
-	  NautilusFileInfo *f2;
+	  CajaFileInfo *f2;
 
 	  if ((f2 = g_hash_table_lookup(cvs->filename2obj, filename)) != NULL) {
 	    /* if the filename exists in the filename2obj hash
 	       but the file obj doesn't exist in the obj2filename hash:
 	       
-	       this happens when nautilus allocates another file object
+	       this happens when caja allocates another file object
 	       for a filename without first deleting the original file object
 	       
 	       just remove the association to the older file object, it's obsolete
@@ -267,8 +267,8 @@ nautilus_dropbox_update_file_info(NautilusInfoProvider     *provider,
   }
 
   if (dropbox_client_is_connected(&(cvs->dc)) == FALSE ||
-      nautilus_file_info_is_gone(file)) {
-    return NAUTILUS_OPERATION_COMPLETE;
+      caja_file_info_is_gone(file)) {
+    return CAJA_OPERATION_COMPLETE;
   }
 
   {
@@ -282,23 +282,23 @@ nautilus_dropbox_update_file_info(NautilusInfoProvider     *provider,
     
     dropbox_command_client_request(&(cvs->dc.dcc), (DropboxCommand *) dfic);
     
-    *handle = (NautilusOperationHandle *) dfic;
+    *handle = (CajaOperationHandle *) dfic;
     
     return dropbox_use_operation_in_progress_workaround
-      ? NAUTILUS_OPERATION_COMPLETE
-      : NAUTILUS_OPERATION_IN_PROGRESS;
+      ? CAJA_OPERATION_COMPLETE
+      : CAJA_OPERATION_IN_PROGRESS;
   }
 }
 
 static void
-handle_shell_touch(GHashTable *args, NautilusDropbox *cvs) {
+handle_shell_touch(GHashTable *args, CajaDropbox *cvs) {
   gchar **path;
 
   //  debug_enter();
 
   if ((path = g_hash_table_lookup(args, "path")) != NULL &&
       path[0][0] == '/') {
-    NautilusFileInfo *file;
+    CajaFileInfo *file;
     gchar *filename;
 
     filename = canonicalize_path(path[0]);
@@ -318,16 +318,16 @@ handle_shell_touch(GHashTable *args, NautilusDropbox *cvs) {
 }
 
 gboolean
-nautilus_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *dficr) {
+caja_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *dficr) {
 
   //debug_enter();
-  NautilusOperationResult result = NAUTILUS_OPERATION_FAILED;
+  CajaOperationResult result = CAJA_OPERATION_FAILED;
 
   if (!dficr->dfic->cancelled) {
     gchar **status = NULL;
     gboolean isdir;
 
-    isdir = nautilus_file_info_is_directory(dficr->dfic->file) ;
+    isdir = caja_file_info_is_directory(dficr->dfic->file) ;
 
     /* if we have emblems just use them. */
     if (dficr->emblems_response != NULL &&
@@ -335,9 +335,9 @@ nautilus_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *dficr)
       int i;
       for ( i = 0; status[i] != NULL; i++) {
 	  if (status[i][0])
-	    nautilus_file_info_add_emblem(dficr->dfic->file, status[i]);
+	    caja_file_info_add_emblem(dficr->dfic->file, status[i]);
       }
-      result = NAUTILUS_OPERATION_COMPLETE;
+      result = CAJA_OPERATION_COMPLETE;
     }
     /* if the file status command went okay */
     else if ((dficr->file_status_response != NULL &&
@@ -351,16 +351,16 @@ nautilus_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *dficr)
       if (isdir &&
 	  (tag = g_hash_table_lookup(dficr->folder_tag_response, "tag")) != NULL) {
 	if (strcmp("public", tag[0]) == 0) {
-	  nautilus_file_info_add_emblem(dficr->dfic->file, "web");
+	  caja_file_info_add_emblem(dficr->dfic->file, "web");
 	}
 	else if (strcmp("shared", tag[0]) == 0) {
-	  nautilus_file_info_add_emblem(dficr->dfic->file, "people");
+	  caja_file_info_add_emblem(dficr->dfic->file, "people");
 	}
 	else if (strcmp("photos", tag[0]) == 0) {
-	  nautilus_file_info_add_emblem(dficr->dfic->file, "photos");
+	  caja_file_info_add_emblem(dficr->dfic->file, "photos");
 	}
 	else if (strcmp("sandbox", tag[0]) == 0) {
-	  nautilus_file_info_add_emblem(dficr->dfic->file, "star");
+	  caja_file_info_add_emblem(dficr->dfic->file, "star");
 	}
       }
 
@@ -381,21 +381,21 @@ nautilus_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *dficr)
 	if (emblem_code > 0) {
 	  /*
 	    debug("%s to %s", emblems[emblem_code-1],
-	    g_filename_from_uri(nautilus_file_info_get_uri(dficr->dfic->file),
+	    g_filename_from_uri(caja_file_info_get_uri(dficr->dfic->file),
 	    NULL, NULL));
 	  */
-	  nautilus_file_info_add_emblem(dficr->dfic->file, emblems[emblem_code-1]);
+	  caja_file_info_add_emblem(dficr->dfic->file, emblems[emblem_code-1]);
 	}
       }
-      result = NAUTILUS_OPERATION_COMPLETE;
+      result = CAJA_OPERATION_COMPLETE;
     }
   }
 
   /* complete the info request */
   if (!dropbox_use_operation_in_progress_workaround) {
-      nautilus_info_provider_update_complete_invoke(dficr->dfic->update_complete,
+      caja_info_provider_update_complete_invoke(dficr->dfic->update_complete,
 						    dficr->dfic->provider,
-						    (NautilusOperationHandle*) dficr->dfic,
+						    (CajaOperationHandle*) dficr->dfic,
 						    result);
   }
 
@@ -419,16 +419,16 @@ nautilus_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *dficr)
 }
 
 static void
-nautilus_dropbox_cancel_update(NautilusInfoProvider     *provider,
-                               NautilusOperationHandle  *handle) {
+caja_dropbox_cancel_update(CajaInfoProvider     *provider,
+                               CajaOperationHandle  *handle) {
   DropboxFileInfoCommand *dfic = (DropboxFileInfoCommand *) handle;
   dfic->cancelled = TRUE;
   return;
 }
 
 static void
-menu_item_cb(NautilusMenuItem *item,
-	     NautilusDropbox *cvs) {
+menu_item_cb(CajaMenuItem *item,
+	     CajaDropbox *cvs) {
   gchar *verb;
   GList *files;
   DropboxGeneralCommand *dcac;
@@ -438,8 +438,8 @@ menu_item_cb(NautilusMenuItem *item,
   /* maybe these would be better passed in a container
      struct used as the userdata pointer, oh well this
      is how dave camp does it */
-  files = g_object_get_data(G_OBJECT(item), "nautilus_dropbox_files");
-  verb = g_object_get_data(G_OBJECT(item), "nautilus_dropbox_verb");
+  files = g_object_get_data(G_OBJECT(item), "caja_dropbox_files");
+  verb = g_object_get_data(G_OBJECT(item), "caja_dropbox_verb");
 
   dcac->dc.request_type = GENERAL_COMMAND;
 
@@ -456,7 +456,7 @@ menu_item_cb(NautilusMenuItem *item,
     arglist = g_new0(gchar *,g_list_length(files) + 1);
 
     for (li = files, i = 0; li != NULL; li = g_list_next(li)) {
-      char *uri = nautilus_file_info_get_uri(NAUTILUS_FILE_INFO(li->data));
+      char *uri = caja_file_info_get_uri(CAJA_FILE_INFO(li->data));
       char *path = g_filename_from_uri(uri, NULL, NULL);
       g_free(uri);
       if (!path)
@@ -514,11 +514,11 @@ int GhettoURLDecode(gchar* out, gchar* in, int n) {
 }
 
 static int
-nautilus_dropbox_parse_menu(gchar			**options,
-			    NautilusMenu		*menu,
+caja_dropbox_parse_menu(gchar			**options,
+			    CajaMenu		*menu,
 			    GString			*old_action_string,
 			    GList			*toret,
-			    NautilusMenuProvider	*provider,
+			    CajaMenuProvider	*provider,
 			    GList			*files)
 {
   int ret = 0;
@@ -546,26 +546,26 @@ nautilus_dropbox_parse_menu(gchar			**options,
     if (strchr(item_inner, '~') != NULL) {
       GString *new_action_string = g_string_new(old_action_string->str);
       gchar **suboptions = g_strsplit(item_inner, "|", -1);
-      NautilusMenuItem *item;
-      NautilusMenu *submenu = nautilus_menu_new();
+      CajaMenuItem *item;
+      CajaMenu *submenu = caja_menu_new();
 
       g_string_append(new_action_string, item_name);
       g_string_append(new_action_string, "::");
 
-      ret += nautilus_dropbox_parse_menu(suboptions, submenu, new_action_string,
+      ret += caja_dropbox_parse_menu(suboptions, submenu, new_action_string,
 					 toret, provider, files);
 
-      item = nautilus_menu_item_new(new_action_string->str,
+      item = caja_menu_item_new(new_action_string->str,
 				    item_name, "", NULL);
-      nautilus_menu_item_set_submenu(item, submenu);
-      nautilus_menu_append_item(menu, item);
+      caja_menu_item_set_submenu(item, submenu);
+      caja_menu_append_item(menu, item);
 
       g_strfreev(suboptions);
       g_object_unref(item);
       g_object_unref(submenu);
       g_string_free(new_action_string, TRUE);
     } else {
-      NautilusMenuItem *item;
+      CajaMenuItem *item;
       GString *new_action_string = g_string_new(old_action_string->str);
       gboolean grayed_out = FALSE;
 
@@ -576,15 +576,15 @@ nautilus_dropbox_parse_menu(gchar			**options,
 	  grayed_out = TRUE;
       }
 
-      item = nautilus_menu_item_new(new_action_string->str, item_name, item_inner, NULL);
+      item = caja_menu_item_new(new_action_string->str, item_name, item_inner, NULL);
 
-      nautilus_menu_append_item(menu, item);
+      caja_menu_append_item(menu, item);
       /* add the file metadata to this item */
-      g_object_set_data_full (G_OBJECT(item), "nautilus_dropbox_files",
-			      nautilus_file_info_list_copy (files),
-			      (GDestroyNotify) nautilus_file_info_list_free);
+      g_object_set_data_full (G_OBJECT(item), "caja_dropbox_files",
+			      caja_file_info_list_copy (files),
+			      (GDestroyNotify) caja_file_info_list_free);
       /* add the verb metadata */
-      g_object_set_data_full (G_OBJECT(item), "nautilus_dropbox_verb",
+      g_object_set_data_full (G_OBJECT(item), "caja_dropbox_verb",
 			      g_strdup(verb),
 			      (GDestroyNotify) g_free);
       g_signal_connect (item, "activate", G_CALLBACK (menu_item_cb), provider);
@@ -596,10 +596,10 @@ nautilus_dropbox_parse_menu(gchar			**options,
 	g_object_set_property (G_OBJECT(item), "sensitive", &sensitive);
       }
 
-      /* taken from nautilus-file-repairer (http://repairer.kldp.net/):
-       * this code is a workaround for a bug of nautilus
+      /* taken from caja-file-repairer (http://repairer.kldp.net/):
+       * this code is a workaround for a bug of caja
        * See: http://bugzilla.gnome.org/show_bug.cgi?id=508878 */
-      if (dropbox_use_nautilus_submenu_workaround) {
+      if (dropbox_use_caja_submenu_workaround) {
 	toret = g_list_append(toret, item);
       }
 
@@ -626,7 +626,7 @@ get_file_items_callback(GHashTable *response, gpointer ud)
 
 
 static GList *
-nautilus_dropbox_get_file_items(NautilusMenuProvider *provider,
+caja_dropbox_get_file_items(CajaMenuProvider *provider,
                                 GtkWidget            *window,
 				GList                *files)
 {
@@ -643,7 +643,7 @@ nautilus_dropbox_get_file_items(NautilusMenuProvider *provider,
   GList* elem;
 
   for (elem = files; elem; elem = elem->next, i++) {
-    gchar *uri = nautilus_file_info_get_uri(elem->data);
+    gchar *uri = caja_file_info_get_uri(elem->data);
     gchar *filename_un = uri ? g_filename_from_uri(uri, NULL, NULL) : NULL;
     gchar *filename = filename_un ? g_filename_to_utf8(filename_un, -1, NULL, NULL, NULL) : NULL;
 
@@ -679,13 +679,13 @@ nautilus_dropbox_get_file_items(NautilusMenuProvider *provider,
   /*
    * 3. Queue it up for the helper thread to run it.
    */
-  NautilusDropbox *cvs = NAUTILUS_DROPBOX(provider);
+  CajaDropbox *cvs = CAJA_DROPBOX(provider);
   dropbox_command_client_request(&(cvs->dc.dcc), (DropboxCommand *) dgc);
 
   GTimeVal gtv;
 
   /*
-   * 4. We have to block until it's done because nautilus expects a reply.  But we will
+   * 4. We have to block until it's done because caja expects a reply.  But we will
    * only block for 50 ms for a reply.
    */
 
@@ -708,23 +708,23 @@ nautilus_dropbox_get_file_items(NautilusMenuProvider *provider,
 
   if (options && *options && **options)  {
     /* build the menu */
-    NautilusMenuItem *root_item;
-    NautilusMenu *root_menu;
+    CajaMenuItem *root_item;
+    CajaMenu *root_menu;
 
-    root_menu = nautilus_menu_new();
-    root_item = nautilus_menu_item_new("NautilusDropbox::root_item",
+    root_menu = caja_menu_new();
+    root_item = caja_menu_item_new("CajaDropbox::root_item",
 				       "Dropbox", "Dropbox Options", "dropbox");
 
     toret = g_list_append(toret, root_item);
-    GString *action_string = g_string_new("NautilusDropbox::");
+    GString *action_string = g_string_new("CajaDropbox::");
 
-    if (!nautilus_dropbox_parse_menu(options, root_menu, action_string,
+    if (!caja_dropbox_parse_menu(options, root_menu, action_string,
 				     toret, provider, files)) {
 	g_object_unref(toret);
 	toret = NULL;
     }
 
-    nautilus_menu_item_set_submenu(root_item, root_menu);
+    caja_menu_item_set_submenu(root_item, root_menu);
 
     g_string_free(action_string, TRUE);
     g_object_unref(root_menu);
@@ -809,7 +809,7 @@ exit:
   return FALSE;
 }
 
-void get_emblem_paths_cb(GHashTable *emblem_paths_response, NautilusDropbox *cvs)
+void get_emblem_paths_cb(GHashTable *emblem_paths_response, CajaDropbox *cvs)
 {
   if (!emblem_paths_response) {
       emblem_paths_response = g_hash_table_new((GHashFunc) g_str_hash,
@@ -833,16 +833,16 @@ void get_emblem_paths_cb(GHashTable *emblem_paths_response, NautilusDropbox *cvs
 }
 
 static void
-on_connect(NautilusDropbox *cvs) {
+on_connect(CajaDropbox *cvs) {
   reset_all_files(cvs);
 
   dropbox_command_client_send_command(&(cvs->dc.dcc),
-				      (NautilusDropboxCommandResponseHandler) get_emblem_paths_cb,
+				      (CajaDropboxCommandResponseHandler) get_emblem_paths_cb,
 				      cvs, "get_emblem_paths", NULL);
 }
 
 static void
-on_disconnect(NautilusDropbox *cvs) {
+on_disconnect(CajaDropbox *cvs) {
   reset_all_files(cvs);
 
   g_mutex_lock(cvs->emblem_paths_mutex);
@@ -854,20 +854,20 @@ on_disconnect(NautilusDropbox *cvs) {
 
 
 static void
-nautilus_dropbox_menu_provider_iface_init (NautilusMenuProviderIface *iface) {
-  iface->get_file_items = nautilus_dropbox_get_file_items;
+caja_dropbox_menu_provider_iface_init (CajaMenuProviderIface *iface) {
+  iface->get_file_items = caja_dropbox_get_file_items;
   return;
 }
 
 static void
-nautilus_dropbox_info_provider_iface_init (NautilusInfoProviderIface *iface) {
-  iface->update_file_info = nautilus_dropbox_update_file_info;
-  iface->cancel_update = nautilus_dropbox_cancel_update;
+caja_dropbox_info_provider_iface_init (CajaInfoProviderIface *iface) {
+  iface->update_file_info = caja_dropbox_update_file_info;
+  iface->cancel_update = caja_dropbox_cancel_update;
   return;
 }
 
 static void
-nautilus_dropbox_instance_init (NautilusDropbox *cvs) {
+caja_dropbox_instance_init (CajaDropbox *cvs) {
   cvs->filename2obj = g_hash_table_new_full((GHashFunc) g_str_hash,
 					    (GEqualFunc) g_str_equal,
 					    (GDestroyNotify) g_free,
@@ -883,7 +883,7 @@ nautilus_dropbox_instance_init (NautilusDropbox *cvs) {
   dropbox_client_setup(&(cvs->dc));
 
   /* our hooks */
-  nautilus_dropbox_hooks_add(&(cvs->dc.hookserv), "shell_touch",
+  caja_dropbox_hooks_add(&(cvs->dc.hookserv), "shell_touch",
 			     (DropboxUpdateHook) handle_shell_touch, cvs);
 
   /* add connection handlers */
@@ -902,42 +902,42 @@ nautilus_dropbox_instance_init (NautilusDropbox *cvs) {
 }
 
 static void
-nautilus_dropbox_class_init (NautilusDropboxClass *class) {
+caja_dropbox_class_init (CajaDropboxClass *class) {
 }
 
 static void
-nautilus_dropbox_class_finalize (NautilusDropboxClass *class) {
+caja_dropbox_class_finalize (CajaDropboxClass *class) {
   debug("just checking");
   /* kill threads here? */
 }
 
 GType
-nautilus_dropbox_get_type (void) {
+caja_dropbox_get_type (void) {
   return dropbox_type;
 }
 
 void
-nautilus_dropbox_register_type (GTypeModule *module) {
+caja_dropbox_register_type (GTypeModule *module) {
   static const GTypeInfo info = {
-    sizeof (NautilusDropboxClass),
+    sizeof (CajaDropboxClass),
     (GBaseInitFunc) NULL,
     (GBaseFinalizeFunc) NULL,
-    (GClassInitFunc) nautilus_dropbox_class_init,
-    (GClassFinalizeFunc) nautilus_dropbox_class_finalize,
+    (GClassInitFunc) caja_dropbox_class_init,
+    (GClassFinalizeFunc) caja_dropbox_class_finalize,
     NULL,
-    sizeof (NautilusDropbox),
+    sizeof (CajaDropbox),
     0,
-    (GInstanceInitFunc) nautilus_dropbox_instance_init,
+    (GInstanceInitFunc) caja_dropbox_instance_init,
   };
 
   static const GInterfaceInfo menu_provider_iface_info = {
-    (GInterfaceInitFunc) nautilus_dropbox_menu_provider_iface_init,
+    (GInterfaceInitFunc) caja_dropbox_menu_provider_iface_init,
     NULL,
     NULL
   };
 
   static const GInterfaceInfo info_provider_iface_info = {
-    (GInterfaceInitFunc) nautilus_dropbox_info_provider_iface_init,
+    (GInterfaceInitFunc) caja_dropbox_info_provider_iface_init,
     NULL,
     NULL
   };
@@ -945,16 +945,16 @@ nautilus_dropbox_register_type (GTypeModule *module) {
   dropbox_type =
     g_type_module_register_type(module,
 				G_TYPE_OBJECT,
-				"NautilusDropbox",
+				"CajaDropbox",
 				&info, 0);
   
   g_type_module_add_interface (module,
 			       dropbox_type,
-			       NAUTILUS_TYPE_MENU_PROVIDER,
+			       CAJA_TYPE_MENU_PROVIDER,
 			       &menu_provider_iface_info);
 
   g_type_module_add_interface (module,
 			       dropbox_type,
-			       NAUTILUS_TYPE_INFO_PROVIDER,
+			       CAJA_TYPE_INFO_PROVIDER,
 			       &info_provider_iface_info);
 }

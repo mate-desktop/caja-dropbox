@@ -67,23 +67,23 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(nautilus_extensiondir)"
-LTLIBRARIES = $(nautilus_extension_LTLIBRARIES)
+am__installdirs = "$(DESTDIR)$(caja_extensiondir)"
+LTLIBRARIES = $(caja_extension_LTLIBRARIES)
 am__DEPENDENCIES_1 =
-libnautilus_dropbox_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
+libcaja_dropbox_la_DEPENDENCIES = $(am__DEPENDENCIES_1) \
 	$(am__DEPENDENCIES_1)
-am_libnautilus_dropbox_la_OBJECTS =  \
-	libnautilus_dropbox_la-nautilus-dropbox.lo \
-	libnautilus_dropbox_la-nautilus-dropbox-hooks.lo \
-	libnautilus_dropbox_la-dropbox-command-client.lo \
-	libnautilus_dropbox_la-dropbox-client.lo \
-	libnautilus_dropbox_la-dropbox-client-util.lo \
-	libnautilus_dropbox_la-dropbox.lo
-libnautilus_dropbox_la_OBJECTS = $(am_libnautilus_dropbox_la_OBJECTS)
-libnautilus_dropbox_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+am_libcaja_dropbox_la_OBJECTS =  \
+	libcaja_dropbox_la-caja-dropbox.lo \
+	libcaja_dropbox_la-caja-dropbox-hooks.lo \
+	libcaja_dropbox_la-dropbox-command-client.lo \
+	libcaja_dropbox_la-dropbox-client.lo \
+	libcaja_dropbox_la-dropbox-client-util.lo \
+	libcaja_dropbox_la-dropbox.lo
+libcaja_dropbox_la_OBJECTS = $(am_libcaja_dropbox_la_OBJECTS)
+libcaja_dropbox_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) \
-	$(libnautilus_dropbox_la_LDFLAGS) $(LDFLAGS) -o $@
+	$(libcaja_dropbox_la_CFLAGS) $(CFLAGS) \
+	$(libcaja_dropbox_la_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -97,8 +97,8 @@ CCLD = $(CC)
 LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(libnautilus_dropbox_la_SOURCES)
-DIST_SOURCES = $(libnautilus_dropbox_la_SOURCES)
+SOURCES = $(libcaja_dropbox_la_SOURCES)
+DIST_SOURCES = $(libcaja_dropbox_la_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -145,9 +145,9 @@ LN_S = @LN_S@
 LTLIBOBJS = @LTLIBOBJS@
 MAKEINFO = @MAKEINFO@
 MKDIR_P = @MKDIR_P@
-NAUTILUS_CFLAGS = @NAUTILUS_CFLAGS@
-NAUTILUS_EXTENSION_DIR = @NAUTILUS_EXTENSION_DIR@
-NAUTILUS_LIBS = @NAUTILUS_LIBS@
+CAJA_CFLAGS = @CAJA_CFLAGS@
+CAJA_EXTENSION_DIR = @CAJA_EXTENSION_DIR@
+CAJA_LIBS = @CAJA_LIBS@
 NM = @NM@
 NMEDIT = @NMEDIT@
 OBJDUMP = @OBJDUMP@
@@ -227,17 +227,17 @@ INCLUDES = \
 	-I$(top_srcdir)					\
 	-I$(top_builddir)
 
-nautilus_extensiondir = $(NAUTILUS_EXTENSION_DIR)
-nautilus_extension_LTLIBRARIES = libnautilus-dropbox.la
-libnautilus_dropbox_la_CFLAGS = -DDATADIR=\"$(datadir)\" \
+caja_extensiondir = $(CAJA_EXTENSION_DIR)
+caja_extension_LTLIBRARIES = libcaja-dropbox.la
+libcaja_dropbox_la_CFLAGS = -DDATADIR=\"$(datadir)\" \
 	-DEMBLEMDIR=\"$(EMBLEM_DIR)\" -Wall $(WARN_CFLAGS) \
-	$(DISABLE_DEPRECATED_CFLAGS) $(NAUTILUS_CFLAGS) $(GLIB_CFLAGS) \
+	$(DISABLE_DEPRECATED_CFLAGS) $(CAJA_CFLAGS) $(GLIB_CFLAGS) \
 	$(am__append_1) $(am__append_2)
-libnautilus_dropbox_la_SOURCES = \
-	nautilus-dropbox.c       \
-	nautilus-dropbox.h       \
-	nautilus-dropbox-hooks.h \
-	nautilus-dropbox-hooks.c \
+libcaja_dropbox_la_SOURCES = \
+	caja-dropbox.c       \
+	caja-dropbox.h       \
+	caja-dropbox-hooks.h \
+	caja-dropbox-hooks.c \
 	dropbox-command-client.h \
 	dropbox-command-client.c \
 	dropbox-client.c dropbox-client.h \
@@ -247,8 +247,8 @@ libnautilus_dropbox_la_SOURCES = \
 	dropbox-client-util.h \
 	dropbox.c
 
-libnautilus_dropbox_la_LDFLAGS = -module -avoid-version
-libnautilus_dropbox_la_LIBADD = $(NAUTILUS_LIBS) $(GLIB_LIBS)
+libcaja_dropbox_la_LDFLAGS = -module -avoid-version
+libcaja_dropbox_la_LIBADD = $(CAJA_LIBS) $(GLIB_LIBS)
 all: all-am
 
 .SUFFIXES:
@@ -283,39 +283,39 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-install-nautilus_extensionLTLIBRARIES: $(nautilus_extension_LTLIBRARIES)
+install-caja_extensionLTLIBRARIES: $(caja_extension_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(nautilus_extensiondir)" || $(MKDIR_P) "$(DESTDIR)$(nautilus_extensiondir)"
-	@list='$(nautilus_extension_LTLIBRARIES)'; test -n "$(nautilus_extensiondir)" || list=; \
+	test -z "$(caja_extensiondir)" || $(MKDIR_P) "$(DESTDIR)$(caja_extensiondir)"
+	@list='$(caja_extension_LTLIBRARIES)'; test -n "$(caja_extensiondir)" || list=; \
 	list2=; for p in $$list; do \
 	  if test -f $$p; then \
 	    list2="$$list2 $$p"; \
 	  else :; fi; \
 	done; \
 	test -z "$$list2" || { \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(nautilus_extensiondir)'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(nautilus_extensiondir)"; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(caja_extensiondir)'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(caja_extensiondir)"; \
 	}
 
-uninstall-nautilus_extensionLTLIBRARIES:
+uninstall-caja_extensionLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(nautilus_extension_LTLIBRARIES)'; test -n "$(nautilus_extensiondir)" || list=; \
+	@list='$(caja_extension_LTLIBRARIES)'; test -n "$(caja_extensiondir)" || list=; \
 	for p in $$list; do \
 	  $(am__strip_dir) \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(nautilus_extensiondir)/$$f'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(nautilus_extensiondir)/$$f"; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(caja_extensiondir)/$$f'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(caja_extensiondir)/$$f"; \
 	done
 
-clean-nautilus_extensionLTLIBRARIES:
-	-test -z "$(nautilus_extension_LTLIBRARIES)" || rm -f $(nautilus_extension_LTLIBRARIES)
-	@list='$(nautilus_extension_LTLIBRARIES)'; for p in $$list; do \
+clean-caja_extensionLTLIBRARIES:
+	-test -z "$(caja_extension_LTLIBRARIES)" || rm -f $(caja_extension_LTLIBRARIES)
+	@list='$(caja_extension_LTLIBRARIES)'; for p in $$list; do \
 	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
 	  test "$$dir" != "$$p" || dir=.; \
 	  echo "rm -f \"$${dir}/so_locations\""; \
 	  rm -f "$${dir}/so_locations"; \
 	done
-libnautilus-dropbox.la: $(libnautilus_dropbox_la_OBJECTS) $(libnautilus_dropbox_la_DEPENDENCIES) 
-	$(libnautilus_dropbox_la_LINK) -rpath $(nautilus_extensiondir) $(libnautilus_dropbox_la_OBJECTS) $(libnautilus_dropbox_la_LIBADD) $(LIBS)
+libcaja-dropbox.la: $(libcaja_dropbox_la_OBJECTS) $(libcaja_dropbox_la_DEPENDENCIES) 
+	$(libcaja_dropbox_la_LINK) -rpath $(caja_extensiondir) $(libcaja_dropbox_la_OBJECTS) $(libcaja_dropbox_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -323,12 +323,12 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnautilus_dropbox_la-dropbox-client-util.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnautilus_dropbox_la-dropbox-client.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnautilus_dropbox_la-dropbox-command-client.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnautilus_dropbox_la-dropbox.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox-hooks.Plo@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcaja_dropbox_la-dropbox-client-util.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcaja_dropbox_la-dropbox-client.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcaja_dropbox_la-dropbox-command-client.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcaja_dropbox_la-dropbox.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcaja_dropbox_la-caja-dropbox-hooks.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libcaja_dropbox_la-caja-dropbox.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
@@ -351,47 +351,47 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LTCOMPILE) -c -o $@ $<
 
-libnautilus_dropbox_la-nautilus-dropbox.lo: nautilus-dropbox.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -MT libnautilus_dropbox_la-nautilus-dropbox.lo -MD -MP -MF $(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox.Tpo -c -o libnautilus_dropbox_la-nautilus-dropbox.lo `test -f 'nautilus-dropbox.c' || echo '$(srcdir)/'`nautilus-dropbox.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox.Tpo $(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='nautilus-dropbox.c' object='libnautilus_dropbox_la-nautilus-dropbox.lo' libtool=yes @AMDEPBACKSLASH@
+libcaja_dropbox_la-caja-dropbox.lo: caja-dropbox.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -MT libcaja_dropbox_la-caja-dropbox.lo -MD -MP -MF $(DEPDIR)/libcaja_dropbox_la-caja-dropbox.Tpo -c -o libcaja_dropbox_la-caja-dropbox.lo `test -f 'caja-dropbox.c' || echo '$(srcdir)/'`caja-dropbox.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libcaja_dropbox_la-caja-dropbox.Tpo $(DEPDIR)/libcaja_dropbox_la-caja-dropbox.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='caja-dropbox.c' object='libcaja_dropbox_la-caja-dropbox.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -c -o libnautilus_dropbox_la-nautilus-dropbox.lo `test -f 'nautilus-dropbox.c' || echo '$(srcdir)/'`nautilus-dropbox.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -c -o libcaja_dropbox_la-caja-dropbox.lo `test -f 'caja-dropbox.c' || echo '$(srcdir)/'`caja-dropbox.c
 
-libnautilus_dropbox_la-nautilus-dropbox-hooks.lo: nautilus-dropbox-hooks.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -MT libnautilus_dropbox_la-nautilus-dropbox-hooks.lo -MD -MP -MF $(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox-hooks.Tpo -c -o libnautilus_dropbox_la-nautilus-dropbox-hooks.lo `test -f 'nautilus-dropbox-hooks.c' || echo '$(srcdir)/'`nautilus-dropbox-hooks.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox-hooks.Tpo $(DEPDIR)/libnautilus_dropbox_la-nautilus-dropbox-hooks.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='nautilus-dropbox-hooks.c' object='libnautilus_dropbox_la-nautilus-dropbox-hooks.lo' libtool=yes @AMDEPBACKSLASH@
+libcaja_dropbox_la-caja-dropbox-hooks.lo: caja-dropbox-hooks.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -MT libcaja_dropbox_la-caja-dropbox-hooks.lo -MD -MP -MF $(DEPDIR)/libcaja_dropbox_la-caja-dropbox-hooks.Tpo -c -o libcaja_dropbox_la-caja-dropbox-hooks.lo `test -f 'caja-dropbox-hooks.c' || echo '$(srcdir)/'`caja-dropbox-hooks.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libcaja_dropbox_la-caja-dropbox-hooks.Tpo $(DEPDIR)/libcaja_dropbox_la-caja-dropbox-hooks.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='caja-dropbox-hooks.c' object='libcaja_dropbox_la-caja-dropbox-hooks.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -c -o libnautilus_dropbox_la-nautilus-dropbox-hooks.lo `test -f 'nautilus-dropbox-hooks.c' || echo '$(srcdir)/'`nautilus-dropbox-hooks.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -c -o libcaja_dropbox_la-caja-dropbox-hooks.lo `test -f 'caja-dropbox-hooks.c' || echo '$(srcdir)/'`caja-dropbox-hooks.c
 
-libnautilus_dropbox_la-dropbox-command-client.lo: dropbox-command-client.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -MT libnautilus_dropbox_la-dropbox-command-client.lo -MD -MP -MF $(DEPDIR)/libnautilus_dropbox_la-dropbox-command-client.Tpo -c -o libnautilus_dropbox_la-dropbox-command-client.lo `test -f 'dropbox-command-client.c' || echo '$(srcdir)/'`dropbox-command-client.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libnautilus_dropbox_la-dropbox-command-client.Tpo $(DEPDIR)/libnautilus_dropbox_la-dropbox-command-client.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox-command-client.c' object='libnautilus_dropbox_la-dropbox-command-client.lo' libtool=yes @AMDEPBACKSLASH@
+libcaja_dropbox_la-dropbox-command-client.lo: dropbox-command-client.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -MT libcaja_dropbox_la-dropbox-command-client.lo -MD -MP -MF $(DEPDIR)/libcaja_dropbox_la-dropbox-command-client.Tpo -c -o libcaja_dropbox_la-dropbox-command-client.lo `test -f 'dropbox-command-client.c' || echo '$(srcdir)/'`dropbox-command-client.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libcaja_dropbox_la-dropbox-command-client.Tpo $(DEPDIR)/libcaja_dropbox_la-dropbox-command-client.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox-command-client.c' object='libcaja_dropbox_la-dropbox-command-client.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -c -o libnautilus_dropbox_la-dropbox-command-client.lo `test -f 'dropbox-command-client.c' || echo '$(srcdir)/'`dropbox-command-client.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -c -o libcaja_dropbox_la-dropbox-command-client.lo `test -f 'dropbox-command-client.c' || echo '$(srcdir)/'`dropbox-command-client.c
 
-libnautilus_dropbox_la-dropbox-client.lo: dropbox-client.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -MT libnautilus_dropbox_la-dropbox-client.lo -MD -MP -MF $(DEPDIR)/libnautilus_dropbox_la-dropbox-client.Tpo -c -o libnautilus_dropbox_la-dropbox-client.lo `test -f 'dropbox-client.c' || echo '$(srcdir)/'`dropbox-client.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libnautilus_dropbox_la-dropbox-client.Tpo $(DEPDIR)/libnautilus_dropbox_la-dropbox-client.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox-client.c' object='libnautilus_dropbox_la-dropbox-client.lo' libtool=yes @AMDEPBACKSLASH@
+libcaja_dropbox_la-dropbox-client.lo: dropbox-client.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -MT libcaja_dropbox_la-dropbox-client.lo -MD -MP -MF $(DEPDIR)/libcaja_dropbox_la-dropbox-client.Tpo -c -o libcaja_dropbox_la-dropbox-client.lo `test -f 'dropbox-client.c' || echo '$(srcdir)/'`dropbox-client.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libcaja_dropbox_la-dropbox-client.Tpo $(DEPDIR)/libcaja_dropbox_la-dropbox-client.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox-client.c' object='libcaja_dropbox_la-dropbox-client.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -c -o libnautilus_dropbox_la-dropbox-client.lo `test -f 'dropbox-client.c' || echo '$(srcdir)/'`dropbox-client.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -c -o libcaja_dropbox_la-dropbox-client.lo `test -f 'dropbox-client.c' || echo '$(srcdir)/'`dropbox-client.c
 
-libnautilus_dropbox_la-dropbox-client-util.lo: dropbox-client-util.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -MT libnautilus_dropbox_la-dropbox-client-util.lo -MD -MP -MF $(DEPDIR)/libnautilus_dropbox_la-dropbox-client-util.Tpo -c -o libnautilus_dropbox_la-dropbox-client-util.lo `test -f 'dropbox-client-util.c' || echo '$(srcdir)/'`dropbox-client-util.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libnautilus_dropbox_la-dropbox-client-util.Tpo $(DEPDIR)/libnautilus_dropbox_la-dropbox-client-util.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox-client-util.c' object='libnautilus_dropbox_la-dropbox-client-util.lo' libtool=yes @AMDEPBACKSLASH@
+libcaja_dropbox_la-dropbox-client-util.lo: dropbox-client-util.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -MT libcaja_dropbox_la-dropbox-client-util.lo -MD -MP -MF $(DEPDIR)/libcaja_dropbox_la-dropbox-client-util.Tpo -c -o libcaja_dropbox_la-dropbox-client-util.lo `test -f 'dropbox-client-util.c' || echo '$(srcdir)/'`dropbox-client-util.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libcaja_dropbox_la-dropbox-client-util.Tpo $(DEPDIR)/libcaja_dropbox_la-dropbox-client-util.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox-client-util.c' object='libcaja_dropbox_la-dropbox-client-util.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -c -o libnautilus_dropbox_la-dropbox-client-util.lo `test -f 'dropbox-client-util.c' || echo '$(srcdir)/'`dropbox-client-util.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -c -o libcaja_dropbox_la-dropbox-client-util.lo `test -f 'dropbox-client-util.c' || echo '$(srcdir)/'`dropbox-client-util.c
 
-libnautilus_dropbox_la-dropbox.lo: dropbox.c
-@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -MT libnautilus_dropbox_la-dropbox.lo -MD -MP -MF $(DEPDIR)/libnautilus_dropbox_la-dropbox.Tpo -c -o libnautilus_dropbox_la-dropbox.lo `test -f 'dropbox.c' || echo '$(srcdir)/'`dropbox.c
-@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libnautilus_dropbox_la-dropbox.Tpo $(DEPDIR)/libnautilus_dropbox_la-dropbox.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox.c' object='libnautilus_dropbox_la-dropbox.lo' libtool=yes @AMDEPBACKSLASH@
+libcaja_dropbox_la-dropbox.lo: dropbox.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -MT libcaja_dropbox_la-dropbox.lo -MD -MP -MF $(DEPDIR)/libcaja_dropbox_la-dropbox.Tpo -c -o libcaja_dropbox_la-dropbox.lo `test -f 'dropbox.c' || echo '$(srcdir)/'`dropbox.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libcaja_dropbox_la-dropbox.Tpo $(DEPDIR)/libcaja_dropbox_la-dropbox.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='dropbox.c' object='libcaja_dropbox_la-dropbox.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libnautilus_dropbox_la_CFLAGS) $(CFLAGS) -c -o libnautilus_dropbox_la-dropbox.lo `test -f 'dropbox.c' || echo '$(srcdir)/'`dropbox.c
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libcaja_dropbox_la_CFLAGS) $(CFLAGS) -c -o libcaja_dropbox_la-dropbox.lo `test -f 'dropbox.c' || echo '$(srcdir)/'`dropbox.c
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -485,7 +485,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(nautilus_extensiondir)"; do \
+	for dir in "$(DESTDIR)$(caja_extensiondir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -516,7 +516,7 @@ maintainer-clean-generic:
 clean: clean-am
 
 clean-am: clean-generic clean-libtool \
-	clean-nautilus_extensionLTLIBRARIES mostlyclean-am
+	clean-caja_extensionLTLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -536,7 +536,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-nautilus_extensionLTLIBRARIES
+install-data-am: install-caja_extensionLTLIBRARIES
 
 install-dvi: install-dvi-am
 
@@ -582,25 +582,25 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-nautilus_extensionLTLIBRARIES
+uninstall-am: uninstall-caja_extensionLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-libtool clean-nautilus_extensionLTLIBRARIES ctags \
+	clean-libtool clean-caja_extensionLTLIBRARIES ctags \
 	distclean distclean-compile distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am html \
 	html-am info info-am install install-am install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
 	install-info-am install-man \
-	install-nautilus_extensionLTLIBRARIES install-pdf \
+	install-caja_extensionLTLIBRARIES install-pdf \
 	install-pdf-am install-ps install-ps-am install-strip \
 	installcheck installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-compile \
 	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
 	tags uninstall uninstall-am \
-	uninstall-nautilus_extensionLTLIBRARIES
+	uninstall-caja_extensionLTLIBRARIES
 
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

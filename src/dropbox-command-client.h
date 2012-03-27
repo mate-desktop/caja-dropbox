@@ -2,45 +2,45 @@
  * Copyright 2008 Evenflow, Inc.
  *
  * dropbox-command-client.h
- * Header file for nautilus-dropbox-command.c
+ * Header file for caja-dropbox-command.c
  *
- * This file is part of nautilus-dropbox.
+ * This file is part of caja-dropbox.
  *
- * nautilus-dropbox is free software: you can redistribute it and/or modify
+ * caja-dropbox is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * nautilus-dropbox is distributed in the hope that it will be useful,
+ * caja-dropbox is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with nautilus-dropbox.  If not, see <http://www.gnu.org/licenses/>.
+ * along with caja-dropbox.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
 #ifndef DROPBOX_COMMAND_CLIENT_H
 #define DROPBOX_COMMAND_CLIENT_H
 
-#include <libnautilus-extension/nautilus-info-provider.h>
-#include <libnautilus-extension/nautilus-file-info.h>
+#include <libcaja-extension/caja-info-provider.h>
+#include <libcaja-extension/caja-file-info.h>
 
 G_BEGIN_DECLS
 
 /* command structs */
-typedef enum {GET_FILE_INFO, GENERAL_COMMAND} NautilusDropboxRequestType;
+typedef enum {GET_FILE_INFO, GENERAL_COMMAND} CajaDropboxRequestType;
 
 typedef struct {
-  NautilusDropboxRequestType request_type;
+  CajaDropboxRequestType request_type;
 } DropboxCommand;
 
 typedef struct {
   DropboxCommand dc;
-  NautilusInfoProvider *provider;
+  CajaInfoProvider *provider;
   GClosure *update_complete;
-  NautilusFileInfo *file;
+  CajaFileInfo *file;
   gboolean cancelled;
 } DropboxFileInfoCommand;
 
@@ -51,13 +51,13 @@ typedef struct {
   GHashTable *emblems_response;
 } DropboxFileInfoCommandResponse;
 
-typedef void (*NautilusDropboxCommandResponseHandler)(GHashTable *, gpointer);
+typedef void (*CajaDropboxCommandResponseHandler)(GHashTable *, gpointer);
 
 typedef struct {
   DropboxCommand dc;
   gchar *command_name;
   GHashTable *command_args;
-  NautilusDropboxCommandResponseHandler handler;
+  CajaDropboxCommandResponseHandler handler;
   gpointer handler_ud;
 } DropboxGeneralCommand;
 
@@ -90,7 +90,7 @@ void dropbox_command_client_send_simple_command(DropboxCommandClient *dcc,
 						const char *command);
 
 void dropbox_command_client_send_command(DropboxCommandClient *dcc, 
-					 NautilusDropboxCommandResponseHandler h,
+					 CajaDropboxCommandResponseHandler h,
 					 gpointer ud,
 					 const char *command, ...);
 void

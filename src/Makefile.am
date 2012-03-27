@@ -2,30 +2,30 @@ INCLUDES =						\
 	-I$(top_srcdir)					\
 	-I$(top_builddir)
 
-nautilus_extensiondir=$(NAUTILUS_EXTENSION_DIR)
+caja_extensiondir=$(CAJA_EXTENSION_DIR)
 
-nautilus_extension_LTLIBRARIES=libnautilus-dropbox.la
+caja_extension_LTLIBRARIES=libcaja-dropbox.la
 
-libnautilus_dropbox_la_CFLAGS = 	                \
+libcaja_dropbox_la_CFLAGS = 	                \
 	-DDATADIR=\"$(datadir)\"					    \
 	-DEMBLEMDIR=\"$(EMBLEM_DIR)\"					\
 	-Wall                                           \
 	$(WARN_CFLAGS)                                  \
 	$(DISABLE_DEPRECATED_CFLAGS)					\
-	$(NAUTILUS_CFLAGS)                              \
+	$(CAJA_CFLAGS)                              \
 	$(GLIB_CFLAGS)
 
 if DEBUG
-libnautilus_dropbox_la_CFLAGS += -DND_DEBUG
+libcaja_dropbox_la_CFLAGS += -DND_DEBUG
 else
-libnautilus_dropbox_la_CFLAGS += -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS
+libcaja_dropbox_la_CFLAGS += -DG_DISABLE_ASSERT -DG_DISABLE_CHECKS
 endif
 
-libnautilus_dropbox_la_SOURCES = \
-	nautilus-dropbox.c       \
-	nautilus-dropbox.h       \
-	nautilus-dropbox-hooks.h \
-	nautilus-dropbox-hooks.c \
+libcaja_dropbox_la_SOURCES = \
+	caja-dropbox.c       \
+	caja-dropbox.h       \
+	caja-dropbox-hooks.h \
+	caja-dropbox-hooks.c \
 	dropbox-command-client.h \
 	dropbox-command-client.c \
 	dropbox-client.c dropbox-client.h \
@@ -35,5 +35,5 @@ libnautilus_dropbox_la_SOURCES = \
 	dropbox-client-util.h \
 	dropbox.c
 
-libnautilus_dropbox_la_LDFLAGS = -module -avoid-version
-libnautilus_dropbox_la_LIBADD  = $(NAUTILUS_LIBS) $(GLIB_LIBS)
+libcaja_dropbox_la_LDFLAGS = -module -avoid-version
+libcaja_dropbox_la_LIBADD  = $(CAJA_LIBS) $(GLIB_LIBS)

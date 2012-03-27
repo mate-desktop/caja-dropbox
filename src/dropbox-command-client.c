@@ -4,20 +4,20 @@
  * dropbox-command-client.c
  * Implements connection handling and C interface for the Dropbox command socket.
  *
- * This file is part of nautilus-dropbox.
+ * This file is part of caja-dropbox.
  *
- * nautilus-dropbox is free software: you can redistribute it and/or modify
+ * caja-dropbox is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * nautilus-dropbox is distributed in the hope that it will be useful,
+ * caja-dropbox is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with nautilus-dropbox.  If not, see <http://www.gnu.org/licenses/>.
+ * along with caja-dropbox.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -36,18 +36,18 @@
 #include "g-util.h"
 #include "dropbox-client-util.h"
 #include "dropbox-command-client.h"
-#include "nautilus-dropbox.h"
-#include "nautilus-dropbox-hooks.h"
+#include "caja-dropbox.h"
+#include "caja-dropbox-hooks.h"
 
 /* TODO: make this asynchronous ;) */
 
 /*
   this is a tiny hack, necessitated by the fact that
-  finish_file info command is in nautilus_dropbox,
+  finish_file info command is in caja_dropbox,
   this can be cleaned up once the file_info_command isn't a special
   case anylonger
 */
-gboolean nautilus_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *);
+gboolean caja_dropbox_finish_file_info_command(DropboxFileInfoCommandResponse *);
 
 typedef struct {
   DropboxCommandClient *dcc;
@@ -351,7 +351,7 @@ do_file_info_command(GIOChannel *chan, DropboxFileInfoCommand *dfic, GError **ge
 
   {
     gchar *filename_un, *uri;
-    uri = nautilus_file_info_get_uri(dfic->file);
+    uri = caja_file_info_get_uri(dfic->file);
     filename_un = uri ? g_filename_from_uri(uri, NULL, NULL): NULL;
     g_free(uri);
     if (filename_un) {
@@ -400,7 +400,7 @@ do_file_info_command(GIOChannel *chan, DropboxFileInfoCommand *dfic, GError **ge
     return;
   }
 
-  if (nautilus_file_info_is_directory(dfic->file)) {
+  if (caja_file_info_is_directory(dfic->file)) {
     args = g_hash_table_new_full((GHashFunc) g_str_hash,
 				 (GEqualFunc) g_str_equal,
 				 (GDestroyNotify) g_free,
@@ -435,7 +435,7 @@ exit:
   dficr->folder_tag_response = folder_tag_response;
   dficr->file_status_response = file_status_response;
   dficr->emblems_response = emblems_response;
-  g_idle_add((GSourceFunc) nautilus_dropbox_finish_file_info_command, dficr);
+  g_idle_add((GSourceFunc) caja_dropbox_finish_file_info_command, dficr);
 
   g_free(filename);
   
@@ -532,7 +532,7 @@ end_request(DropboxCommand *dc) {
       dficr->dfic = dfic;
       dficr->file_status_response = NULL;
       dficr->emblems_response = NULL;
-      g_idle_add((GSourceFunc) nautilus_dropbox_finish_file_info_command, dficr);
+      g_idle_add((GSourceFunc) caja_dropbox_finish_file_info_command, dficr);
     }
       break;
     case GENERAL_COMMAND: {
@@ -678,7 +678,7 @@ dropbox_command_client_thread(DropboxCommandClient *dcc) {
 
 	g_get_current_time(&gtv);
 	g_time_val_add(&gtv, G_USEC_PER_SEC / 10);
-	/* get a request from nautilus */
+	/* get a request from caja */
 	dc = g_async_queue_timed_pop(dcc->command_queue, &gtv);
 	if (dc != NULL) {
 	  break;
@@ -854,7 +854,7 @@ void dropbox_command_client_send_simple_command(DropboxCommandClient *dcc,
 /* this is the C API, there is another send_command_to_db
    that is more the actual over the wire command */
 void dropbox_command_client_send_command(DropboxCommandClient *dcc, 
-					 NautilusDropboxCommandResponseHandler h,
+					 CajaDropboxCommandResponseHandler h,
 					 gpointer ud,
 					 const char *command, ...) {
   va_list ap;

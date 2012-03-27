@@ -34,14 +34,14 @@
    */
 #undef LT_OBJDIR
 
-/* nautilus version major */
-#undef NAUTILUS_VERSION_MAJOR
+/* caja version major */
+#undef CAJA_VERSION_MAJOR
 
-/* nautilus version micro */
-#undef NAUTILUS_VERSION_MICRO
+/* caja version micro */
+#undef CAJA_VERSION_MICRO
 
-/* nautilus version minor */
-#undef NAUTILUS_VERSION_MINOR
+/* caja version minor */
+#undef CAJA_VERSION_MINOR
 
 /* Name of package */
 #undef PACKAGE

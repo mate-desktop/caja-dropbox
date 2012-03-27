@@ -4,20 +4,20 @@
  * dropbox-client.c
  * Implements connection handling and C interface for interfacing with the Dropbox daemon.
  *
- * This file is part of nautilus-dropbox.
+ * This file is part of caja-dropbox.
  *
- * nautilus-dropbox is free software: you can redistribute it and/or modify
+ * caja-dropbox is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * nautilus-dropbox is distributed in the hope that it will be useful,
+ * caja-dropbox is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with nautilus-dropbox.  If not, see <http://www.gnu.org/licenses/>.
+ * along with caja-dropbox.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
 
@@ -25,7 +25,7 @@
 
 #include "g-util.h"
 #include "dropbox-command-client.h"
-#include "nautilus-dropbox-hooks.h"
+#include "caja-dropbox-hooks.h"
 #include "dropbox-client.h"
 
 static void
@@ -63,7 +63,7 @@ command_on_disconnect(DropboxClient *dc) {
     dc->hook_disconnect_called = dc->command_disconnect_called = FALSE;
   }
   else {
-    nautilus_dropbox_hooks_force_reconnect(&(dc->hookserv));
+    caja_dropbox_hooks_force_reconnect(&(dc->hookserv));
   }
 }
 
@@ -85,7 +85,7 @@ hook_on_disconnect(DropboxClient *dc) {
 gboolean
 dropbox_client_is_connected(DropboxClient *dc) {
   return (dropbox_command_client_is_connected(&(dc->dcc)) &&
-	  nautilus_dropbox_hooks_is_connected(&(dc->hookserv)));
+	  caja_dropbox_hooks_is_connected(&(dc->hookserv)));
 }
 
 void
@@ -93,14 +93,14 @@ dropbox_client_force_reconnect(DropboxClient *dc) {
   if (dropbox_client_is_connected(dc) == TRUE) {
     debug("forcing client to reconnect");
     dropbox_command_client_force_reconnect(&(dc->dcc));
-    nautilus_dropbox_hooks_force_reconnect(&(dc->hookserv));
+    caja_dropbox_hooks_force_reconnect(&(dc->hookserv));
   }
 }
 
 /* should only be called once on initialization */
 void
 dropbox_client_setup(DropboxClient *dc) {
-  nautilus_dropbox_hooks_setup(&(dc->hookserv));
+  caja_dropbox_hooks_setup(&(dc->hookserv));
   dropbox_command_client_setup(&(dc->dcc));
 
   g_hook_list_init(&(dc->ondisconnect_hooklist), sizeof(GHook));
@@ -109,7 +109,7 @@ dropbox_client_setup(DropboxClient *dc) {
   dc->hook_disconnect_called = dc->command_disconnect_called = FALSE;
   dc->hook_connect_called = dc->command_connect_called = FALSE;
 
-  nautilus_dropbox_hooks_add_on_connect_hook(&(dc->hookserv), 
+  caja_dropbox_hooks_add_on_connect_hook(&(dc->hookserv), 
 					     (DropboxHookClientConnectHook)
 					     hook_on_connect, dc);
   
@@ -117,7 +117,7 @@ dropbox_client_setup(DropboxClient *dc) {
 					     (DropboxCommandClientConnectHook)
 					     command_on_connect, dc);
   
-  nautilus_dropbox_hooks_add_on_disconnect_hook(&(dc->hookserv), 
+  caja_dropbox_hooks_add_on_disconnect_hook(&(dc->hookserv), 
 						(DropboxHookClientConnectHook)
 						hook_on_disconnect, dc);
   
@@ -169,6 +169,6 @@ dropbox_client_add_connection_attempt_hook(DropboxClient *dc,
 void
 dropbox_client_start(DropboxClient *dc) {
   debug("starting connections");
-  nautilus_dropbox_hooks_start(&(dc->hookserv));
+  caja_dropbox_hooks_start(&(dc->hookserv));
   dropbox_command_client_start(&(dc->dcc));
 }
