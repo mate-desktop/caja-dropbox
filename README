@@ -1,14 +1,5 @@
-Hi Friend!
+This is Caja-Dropbox, a fork of Nautilus-Dropbox for MATE Desktop.
 
-This is *the* Dropbox extension for Caja!!!
-
-Now you can use your favorite sync, versioning, and backup software with GNU/Linux!
-Yes!! Radical!!! Gnarly!!!!
-
-Check us out at http://www.dropbox.com/
-
-<3,
-Rian Hunter and the rest of the Dropbox Team
 
 Building Dropbox Caja Extension From Source Tarball
 --------------------------------------------------
@@ -18,7 +9,7 @@ You will need the following packages (or equivalent):
 libcaja-extension-dev
 
 In the caja-dropbox dir just do:
-$ ./configure
+$ ./autogen.sh
 $ make
 $ sudo make install
 
