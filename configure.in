@@ -1,7 +1,6 @@
 # Initialization
 
-# This was nautilus-dropbox 0.7.1
-AC_INIT([caja-dropbox], 1.3.0)
+AC_INIT([caja-dropbox], 0.7.1)
 
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 
