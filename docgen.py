@@ -3,7 +3,7 @@ import datetime
 
 # heeeheee
 env = {"__name__":"__notmain__"}
-execfile("dropbox", env)
+execfile("caja-dropbox", env)
 commands = env["commands"]
 
 f = open("AUTHORS", "r")

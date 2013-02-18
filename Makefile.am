@@ -1,16 +1,16 @@
 AUTOMAKE_OPTIONS = dist-bzip2 no-dist-gzip
 
-bin_SCRIPTS = dropbox
-CLEANFILES = $(bin_SCRIPTS) dropbox.1 dropbox.txt
-EXTRA_DIST = dropbox.in serializeimages.py dropbox.txt.in docgen.py rst2man.py
-man_MANS = dropbox.1
+bin_SCRIPTS = caja-dropbox
+CLEANFILES = $(bin_SCRIPTS) caja-dropbox.1 caja-dropbox.txt
+EXTRA_DIST = caja-dropbox.in serializeimages.py caja-dropbox.txt.in docgen.py rst2man.py
+man_MANS = caja-dropbox.1
 
-dropbox: dropbox.in serializeimages.py
-	python serializeimages.py $(PACKAGE_VERSION) $(datadir)/applications < dropbox.in > dropbox
-	chmod +x dropbox
+caja-dropbox: caja-dropbox.in serializeimages.py
+	python serializeimages.py $(PACKAGE_VERSION) $(datadir)/applications < caja-dropbox.in > caja-dropbox
+	chmod +x caja-dropbox
 
-dropbox.1: dropbox.txt.in dropbox docgen.py
-	python docgen.py $(PACKAGE_VERSION) < dropbox.txt.in > dropbox.txt
-	$(RST2MAN) dropbox.txt > dropbox.1
+caja-dropbox.1: caja-dropbox.txt.in caja-dropbox docgen.py
+	python docgen.py $(PACKAGE_VERSION) < caja-dropbox.txt.in > caja-dropbox.txt
+	$(RST2MAN) caja-dropbox.txt > caja-dropbox.1
 
 SUBDIRS = data src
