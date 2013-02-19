@@ -1,10 +1,11 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=Dropbox
-GenericName=File Synchronizer
+Name=caja-Dropbox
+GenericName=File Synchronizer For Mate
 Comment=Sync your files across computers and to the web
 Exec=dropbox start -i
 Terminal=false
 Type=Application
-Icon=dropbox
+Icon=caja-dropbox
 Categories=Network;FileTransfer;
 StartupNotify=false
