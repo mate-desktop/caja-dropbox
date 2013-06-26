@@ -11,8 +11,8 @@ def replace_many(src2dest, buf):
     return src_re.sub(replace_repl, buf)
 
 if __name__ == '__main__':
-    pixbuf64 = gtk.gdk.pixbuf_new_from_file("data/icons/hicolor/64x64/apps/dropbox.png")
-    pixbuf16 = gtk.gdk.pixbuf_new_from_file("data/icons/hicolor/16x16/apps/dropbox.png")
+    pixbuf64 = gtk.gdk.pixbuf_new_from_file("data/icons/hicolor/64x64/apps/caja-dropbox.png")
+    pixbuf16 = gtk.gdk.pixbuf_new_from_file("data/icons/hicolor/16x16/apps/caja-dropbox.png")
     src2dest = {'@PACKAGE_VERSION@': sys.argv[1],
                 '@DESKTOP_FILE_DIR@': sys.argv[2],
                 '@IMAGEDATA64@': ("gtk.gdk.pixbuf_new_from_data(%r, gtk.gdk.COLORSPACE_RGB, %r, %r, %r, %r, %r)" %
