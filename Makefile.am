@@ -1,4 +1,4 @@
-AUTOMAKE_OPTIONS = dist-bzip2 no-dist-gzip
+ACLOCAL_AMFLAGS = -I m4
 
 bin_SCRIPTS = caja-dropbox
 CLEANFILES = $(bin_SCRIPTS) caja-dropbox.1 caja-dropbox.txt

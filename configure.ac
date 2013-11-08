@@ -1,9 +1,10 @@
 # Initialization
 
-AC_INIT([caja-dropbox], 0.7.1)
+AC_INIT([caja-dropbox], [0.7.1], [http://www.mate-desktop.org/])
 
-AM_INIT_AUTOMAKE
+AM_INIT_AUTOMAKE([1.9 tar-ustar dist-xz foreign no-dist-gzip])
 
+AC_CONFIG_MACRO_DIR([m4])
 AC_PREFIX_DEFAULT(/usr)
 
 AC_CONFIG_HEADERS(config.h)
