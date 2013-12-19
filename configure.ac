@@ -109,7 +109,7 @@ EMBLEM_DIR='${datadir}/caja-dropbox/emblems'
 AC_SUBST(EMBLEM_DIR)
 
 AC_CONFIG_FILES([
-	Makefile 
+	Makefile
 	src/Makefile
 	data/Makefile
 	data/icons/Makefile

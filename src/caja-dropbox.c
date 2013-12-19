@@ -2,7 +2,7 @@
  * Copyright 2008 Evenflow, Inc.
  *
  * caja-dropbox.c
- * Implements the Caja extension API for Dropbox. 
+ * Implements the Caja extension API for Dropbox.
  *
  * This file is part of caja-dropbox.
  *
@@ -74,7 +74,7 @@ static gchar *
 canonicalize_path(gchar *path) {
   int i, j = 0;
   gchar *toret, **cpy, **elts;
-  
+
   g_assert(path != NULL);
   g_assert(path[0] == '/');
 
@@ -89,12 +89,12 @@ canonicalize_path(gchar *path) {
       cpy[j++] = elts[i];
     }
   }
-  
+
   cpy[j] = NULL;
   toret = g_build_filenamev(cpy);
   g_free(cpy);
   g_strfreev(elts);
-  
+
   return toret;
 }
 
@@ -120,7 +120,7 @@ when_file_dies(CajaDropbox *cvs, CajaFileInfo *address) {
   gchar *filename;
 
   filename = g_hash_table_lookup(cvs->obj2filename, address);
-  
+
   /* we never got a change to view this file */
   if (filename == NULL) {
     return;
@@ -189,7 +189,7 @@ changed_cb(CajaFileInfo *file, CajaDropbox *cvs) {
     g_hash_table_insert(cvs->filename2obj, g_strdup(filename), file);
     reset_file(file);
   }
-  
+
   g_free(filename);
 }
 
@@ -217,7 +217,7 @@ caja_dropbox_update_file_info(CajaInfoProvider     *provider,
       int cmp = 0;
       gchar *stored_filename;
       gchar *filename;
-      
+
       filename = canonicalize_path(pfilename);
       g_free(pfilename);
       stored_filename = g_hash_table_lookup(cvs->obj2filename, file);
@@ -226,9 +226,9 @@ caja_dropbox_update_file_info(CajaInfoProvider     *provider,
 	 GCSE ftw */
       if ((stored_filename != NULL && (cmp = strcmp(stored_filename, filename)) != 0) ||
 	  stored_filename == NULL) {
-	
+
 	if (stored_filename != NULL && cmp != 0) {
-	  /* this happens when the filename changes name on a file obj 
+	  /* this happens when the filename changes name on a file obj
 	     but changed_cb isn't called */
 	  g_object_weak_unref(G_OBJECT(file), (GWeakNotify) when_file_dies, cvs);
 	  g_hash_table_remove(cvs->obj2filename, file);
@@ -241,10 +241,10 @@ caja_dropbox_update_file_info(CajaInfoProvider     *provider,
 	  if ((f2 = g_hash_table_lookup(cvs->filename2obj, filename)) != NULL) {
 	    /* if the filename exists in the filename2obj hash
 	       but the file obj doesn't exist in the obj2filename hash:
-	       
+
 	       this happens when caja allocates another file object
 	       for a filename without first deleting the original file object
-	       
+
 	       just remove the association to the older file object, it's obsolete
 	    */
 	    g_object_weak_unref(G_OBJECT(f2), (GWeakNotify) when_file_dies, cvs);
@@ -279,11 +279,11 @@ caja_dropbox_update_file_info(CajaInfoProvider     *provider,
     dfic->dc.request_type = GET_FILE_INFO;
     dfic->update_complete = g_closure_ref(update_complete);
     dfic->file = g_object_ref(file);
-    
+
     dropbox_command_client_request(&(cvs->dc.dcc), (DropboxCommand *) dfic);
-    
+
     *handle = (CajaOperationHandle *) dfic;
-    
+
     return dropbox_use_operation_in_progress_workaround
       ? CAJA_OPERATION_COMPLETE
       : CAJA_OPERATION_IN_PROGRESS;
@@ -660,7 +660,7 @@ caja_dropbox_get_file_items(CajaMenuProvider *provider,
   }
 
   GAsyncQueue *reply_queue = g_async_queue_new_full((GDestroyNotify)g_hash_table_unref);
-  
+
   /*
    * 2. Create a DropboxGeneralCommand to call "icon_overlay_context_options"
    */
@@ -893,7 +893,7 @@ caja_dropbox_instance_init (CajaDropbox *cvs) {
   dropbox_client_add_on_disconnect_hook(&(cvs->dc),
 					(DropboxClientConnectHook) on_disconnect,
 					cvs);
-  
+
   /* now start the connection */
   debug("about to start client connection");
   dropbox_client_start(&(cvs->dc));
@@ -947,7 +947,7 @@ caja_dropbox_register_type (GTypeModule *module) {
 				G_TYPE_OBJECT,
 				"CajaDropbox",
 				&info, 0);
-  
+
   g_type_module_add_interface (module,
 			       dropbox_type,
 			       CAJA_TYPE_MENU_PROVIDER,
