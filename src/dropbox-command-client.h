@@ -67,7 +67,7 @@ typedef GHookFunc DropboxCommandClientConnectHook;
 typedef struct {
   GMutex *command_connected_mutex;
   gboolean command_connected;
-  GAsyncQueue *command_queue; 
+  GAsyncQueue *command_queue;
   GList *ca_hooklist;
   GHookList onconnect_hooklist;
   GHookList ondisconnect_hooklist;
@@ -89,7 +89,7 @@ dropbox_command_client_start(DropboxCommandClient *dcc);
 void dropbox_command_client_send_simple_command(DropboxCommandClient *dcc,
 						const char *command);
 
-void dropbox_command_client_send_command(DropboxCommandClient *dcc, 
+void dropbox_command_client_send_command(DropboxCommandClient *dcc,
 					 CajaDropboxCommandResponseHandler h,
 					 gpointer ud,
 					 const char *command, ...);

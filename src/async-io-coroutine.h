@@ -31,7 +31,7 @@ G_BEGIN_DECLS
 #define CRBEGIN(pos) switch (pos) { case 0:
 #define CREND } return FALSE
 #define CRYIELD(pos) do { pos = __LINE__; return TRUE; case __LINE__:;} while (0)
-#define CRHALT return FALSE  
+#define CRHALT return FALSE
 
 #define CRREADLINE(pos, chan, where)                             \
   while (1) {							\

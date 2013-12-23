@@ -36,7 +36,7 @@
 G_BEGIN_DECLS
 
 /* Declarations for the dropbox extension object.  This object will be
- * instantiated by caja.  It implements the GInterfaces 
+ * instantiated by caja.  It implements the GInterfaces
  * exported by libcaja. */
 
 #define CAJA_TYPE_DROPBOX	  (caja_dropbox_get_type ())
