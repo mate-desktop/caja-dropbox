@@ -1,4 +1,4 @@
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAG}
 
 bin_SCRIPTS = caja-dropbox
 CLEANFILES = $(bin_SCRIPTS) caja-dropbox.1 caja-dropbox.txt
