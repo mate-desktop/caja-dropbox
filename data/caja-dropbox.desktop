@@ -3,7 +3,7 @@
 Name=caja-Dropbox
 GenericName=File Synchronizer For Mate
 Comment=Sync your files across computers and to the web
-Exec=dropbox start -i
+Exec=caja-dropbox start -i
 Terminal=false
 Type=Application
 Icon=caja-dropbox
