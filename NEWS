@@ -1,7 +1,8 @@
 caja-dropbox 1.7.90
 =========================
 
-  * Switch to versioning scheme that matches with the other MATE packages.
+	* Extension made usable by Elan Ruusamäe
+	* Switch to versioning scheme that matches with the other MATE packages.
 
 nautilus-dropbox 0.1.0
 ==========================
