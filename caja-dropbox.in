@@ -1261,6 +1261,9 @@ options:
             if GUI_AVAILABLE:
                 start_dropbox()
                 console_print(u"Done!")
+
+                # downloaded dropbox doesn't create autostart file, do it ourselves
+                reroll_autostart(True)
             else:
                 if start_dropbox():
                     if not grab_link_url_if_necessary():
