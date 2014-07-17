@@ -10,7 +10,7 @@ caja-dropbox: caja-dropbox.in serializeimages.py
 	chmod +x caja-dropbox
 
 caja-dropbox.1: caja-dropbox.txt.in caja-dropbox docgen.py
-	python docgen.py $(PACKAGE_VERSION) < caja-dropbox.txt.in > caja-dropbox.txt
+	python docgen.py $(PACKAGE_VERSION) caja-dropbox.txt.in caja-dropbox.txt
 	$(RST2MAN) caja-dropbox.txt > caja-dropbox.1
 
 SUBDIRS = data src
