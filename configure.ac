@@ -112,6 +112,7 @@ AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
 	data/Makefile
+	data/libcaja-dropbox.caja-extension
 	data/icons/Makefile
 	data/icons/hicolor/Makefile
 	data/icons/hicolor/16x16/Makefile
