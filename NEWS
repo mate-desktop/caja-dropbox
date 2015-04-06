@@ -1,5 +1,10 @@
+caja-dropbox 1.9.90
+==========================
+
+	* New release
+
 caja-dropbox 1.8.0
-=========================
+==========================
 
 	* Extension made usable by Elan Ruusamäe
 	* Switch to versioning scheme that matches with the other MATE packages.
