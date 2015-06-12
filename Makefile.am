@@ -2,7 +2,7 @@ ACLOCAL_AMFLAGS = -I m4 ${ACLOCAL_FLAGS}
 
 bin_SCRIPTS = caja-dropbox
 CLEANFILES = $(bin_SCRIPTS) caja-dropbox.1 caja-dropbox.txt
-EXTRA_DIST = caja-dropbox.in serializeimages.py caja-dropbox.txt.in docgen.py rst2man.py
+EXTRA_DIST = caja-dropbox.in serializeimages.py caja-dropbox.txt.in docgen.py rst2man.py autogen.sh
 man_MANS = caja-dropbox.1
 
 caja-dropbox: caja-dropbox.in serializeimages.py
