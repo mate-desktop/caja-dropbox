@@ -88,7 +88,7 @@ else
     CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
 fi
 if test -z "$CAJA_EXTENSION_DIR"; then
-    CAJA_EXTENSION_DIR='${exec_prefix}/lib/caja/extension-1.0'
+    CAJA_EXTENSION_DIR='${exec_prefix}/lib/caja/extensions-2.0'
 fi
 
 AC_MSG_RESULT([${CAJA_EXTENSION_DIR}])
