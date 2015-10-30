@@ -1,5 +1,8 @@
-caja-dropbox 1.11.0
+caja-dropbox 1.12.0
 ==========================
+
+	* Adjust the default caja extensions dir
+	* Include autogen.sh in tarball
 
 caja-dropbox 1.10.0
 ==========================
