@@ -41,7 +41,6 @@ caja_module_initialize (GTypeModule *module) {
   caja_dropbox_register_type (module);
   type_list[0] = CAJA_TYPE_DROPBOX;
 
-  dropbox_use_caja_submenu_workaround = FALSE;
   dropbox_use_operation_in_progress_workaround = TRUE;
 }
 

@@ -49,7 +49,6 @@
 static char *emblems[] = {"dropbox-uptodate", "dropbox-syncing", "dropbox-unsyncable"};
 gchar *DEFAULT_EMBLEM_PATHS[2] = { EMBLEMDIR , NULL };
 
-gboolean dropbox_use_caja_submenu_workaround;
 gboolean dropbox_use_operation_in_progress_workaround;
 
 static GType dropbox_type = 0;
@@ -594,13 +593,6 @@ caja_dropbox_parse_menu(gchar			**options,
 	g_value_init (&sensitive, G_TYPE_BOOLEAN);
 	g_value_set_boolean (&sensitive, FALSE);
 	g_object_set_property (G_OBJECT(item), "sensitive", &sensitive);
-      }
-
-      /* taken from caja-file-repairer (http://repairer.kldp.net/):
-       * this code is a workaround for a bug of caja
-       * See: http://bugzilla.gnome.org/show_bug.cgi?id=508878 */
-      if (dropbox_use_caja_submenu_workaround) {
-	toret = g_list_append(toret, item);
       }
 
       g_object_unref(item);
