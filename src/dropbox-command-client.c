@@ -154,19 +154,6 @@ receive_args_until_done(GIOChannel *chan, GHashTable *return_table,
   return TRUE;
 }
 
-static void my_g_hash_table_get_keys_helper(gpointer key,
-					    gpointer value,
-					    GList **ud) {
-  *ud = g_list_append(*ud, key);
-}
-
-static GList *my_g_hash_table_get_keys(GHashTable *ght) {
-  GList *list = NULL;
-  g_hash_table_foreach(ght, (GHFunc)
-		       my_g_hash_table_get_keys_helper, &list);
-  return list;
-}
-
 /*
   sends a command to the dropbox server
   returns an hash of the return values
@@ -221,10 +208,7 @@ send_command_to_db(GIOChannel *chan, const gchar *command_name,
   if (args != NULL) {
     GList *keys, *li;
 
-    /* oh god */
-    keys = glib_check_version(2, 14, 0)
-      ? my_g_hash_table_get_keys(args)
-      : g_hash_table_get_keys(args);
+    keys = g_hash_table_get_keys(args);
 
     for (li = keys; li != NULL; li = g_list_next(li)) {
       int i;
