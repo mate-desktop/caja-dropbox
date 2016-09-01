@@ -53,21 +53,6 @@ gboolean dropbox_use_operation_in_progress_workaround;
 
 static GType dropbox_type = 0;
 
-/* for old versions of glib */
-#if 0  // Silence Warnings.
-static void my_g_hash_table_get_keys_helper(gpointer key,
-					    gpointer value,
-					    GList **ud) {
-  *ud = g_list_append(*ud, key);
-}
-
-static GList *my_g_hash_table_get_keys(GHashTable *ght) {
-  GList *list = NULL;
-  g_hash_table_foreach(ght, (GHFunc) my_g_hash_table_get_keys_helper, &list);
-  return list;
-}
-#endif
-
 /* probably my favorite function */
 static gchar *
 canonicalize_path(gchar *path) {
