@@ -1,3 +1,8 @@
+caja-dropbox 1.17.0
+==========================
+
+	* Build: require libcaja-extension 1.17.1 and GLib 2.36
+
 caja-dropbox 1.16.0
 ==========================
 
