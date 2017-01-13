@@ -1,37 +1,25 @@
-caja-dropbox 1.17.0
-==========================
+### caja-dropbox 1.17.0
 
-	* Build: require libcaja-extension 1.17.1 and GLib 2.36
+  * Build: require libcaja-extension 1.17.1 and GLib 2.36
 
-caja-dropbox 1.16.0
-==========================
+### caja-dropbox 1.16.0
 
-	* Some code cleanups
+  * Some code cleanups
 
-caja-dropbox 1.14.0
-==========================
+### caja-dropbox 1.14.0
 
-	* Fix Changelog generation
+  * Fix Changelog generation
 
-caja-dropbox 1.12.0
-==========================
+### caja-dropbox 1.12.0
 
-	* Adjust the default caja extensions dir
-	* Include autogen.sh in tarball
+  * Adjust the default caja extensions dir
+  * Include autogen.sh in tarball
 
-caja-dropbox 1.10.0
-==========================
+### caja-dropbox 1.10.0
 
-	* New release
+  * New release
 
-caja-dropbox 1.8.0
-==========================
+### caja-dropbox 1.8.0
 
-	* Extension made usable by Elan Ruusamäe
-	* Switch to versioning scheme that matches with the other MATE packages.
-
-nautilus-dropbox 0.1.0
-==========================
-"Hornay"
-
-	* Initial release.
+  * Extension made usable by Elan Ruusamäe
+  * Switch to versioning scheme that matches with the other MATE packages.
