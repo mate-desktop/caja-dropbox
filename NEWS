@@ -1,4 +1,7 @@
-### caja-dropbox 1.17.0
+### caja-dropbox 1.18.0
+
+  * NEWS: use consistent, project wide, markdown-like formatting to make
+    generating release announcements easier
 
   * Build: require libcaja-extension 1.17.1 and GLib 2.36
 
