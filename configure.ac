@@ -14,7 +14,7 @@ AC_CONFIG_HEADERS(config.h)
 
 # Dependency checks
 CAJA_REQUIRED=1.17.1
-GLIB_REQUIRED=2.36.0
+GLIB_REQUIRED=2.50.0
 
 # Used programs
 AC_PROG_CC
