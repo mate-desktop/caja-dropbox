@@ -1,4 +1,6 @@
-### caja-dropbox 1.19.0
+### caja-dropbox 1.20.0
+
+  * require GLib 2.50
 
 ### caja-dropbox 1.18.0
 
