@@ -693,17 +693,12 @@ caja_dropbox_get_file_items(CajaMenuProvider *provider,
   CajaDropbox *cvs = CAJA_DROPBOX(provider);
   dropbox_command_client_request(&(cvs->dc.dcc), (DropboxCommand *) dgc);
 
-  GTimeVal gtv;
-
   /*
    * 4. We have to block until it's done because caja expects a reply.  But we will
    * only block for 50 ms for a reply.
    */
 
-  g_get_current_time(&gtv);
-  g_time_val_add(&gtv, 50000);
-
-  GHashTable *context_options_response = g_async_queue_timed_pop(reply_queue, &gtv);
+  GHashTable *context_options_response = g_async_queue_timeout_pop(reply_queue, 50000);
   g_async_queue_unref(reply_queue);
 
   if (!context_options_response) {
@@ -831,13 +826,13 @@ void get_emblem_paths_cb(GHashTable *emblem_paths_response, CajaDropbox *cvs)
       g_hash_table_ref(emblem_paths_response);
   }
 
-  g_mutex_lock(cvs->emblem_paths_mutex);
+  g_mutex_lock(&(cvs->emblem_paths_mutex));
   if (cvs->emblem_paths) {
     g_idle_add((GSourceFunc) remove_emblem_paths, cvs->emblem_paths);
     cvs->emblem_paths = NULL;
   }
   cvs->emblem_paths = emblem_paths_response;
-  g_mutex_unlock(cvs->emblem_paths_mutex);
+  g_mutex_unlock(&(cvs->emblem_paths_mutex));
 
   g_idle_add((GSourceFunc) add_emblem_paths, g_hash_table_ref(emblem_paths_response));
   g_idle_add((GSourceFunc) reset_all_files, cvs);
@@ -856,11 +851,11 @@ static void
 on_disconnect(CajaDropbox *cvs) {
   reset_all_files(cvs);
 
-  g_mutex_lock(cvs->emblem_paths_mutex);
+  g_mutex_lock(&(cvs->emblem_paths_mutex));
   /* This call will free the data too. */
   g_idle_add((GSourceFunc) remove_emblem_paths, cvs->emblem_paths);
   cvs->emblem_paths = NULL;
-  g_mutex_unlock(cvs->emblem_paths_mutex);
+  g_mutex_unlock(&(cvs->emblem_paths_mutex));
 }
 
 
@@ -887,7 +882,7 @@ caja_dropbox_instance_init (CajaDropbox *cvs) {
 					    (GEqualFunc) g_direct_equal,
 					    (GDestroyNotify) NULL,
 					    (GDestroyNotify) g_free);
-  cvs->emblem_paths_mutex = g_mutex_new();
+  g_mutex_init(&(cvs->emblem_paths_mutex));
   cvs->emblem_paths = NULL;
 
   /* setup the connection obj*/
