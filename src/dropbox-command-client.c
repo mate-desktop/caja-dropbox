@@ -645,9 +645,9 @@ dropbox_command_client_thread(DropboxCommandClient *dcc) {
     g_io_channel_set_line_term(chan, "\n", -1);
 
 #define SET_CONNECTED_STATE(s)     {			\
-      g_mutex_lock(dcc->command_connected_mutex);	\
+      g_mutex_lock(&(dcc->command_connected_mutex));	\
       dcc->command_connected = s;			\
-      g_mutex_unlock(dcc->command_connected_mutex);	\
+      g_mutex_unlock(&(dcc->command_connected_mutex));	\
     }
 
     SET_CONNECTED_STATE(TRUE);
@@ -658,12 +658,9 @@ dropbox_command_client_thread(DropboxCommandClient *dcc) {
       DropboxCommand *dc;
 
       while (1) {
-	GTimeVal gtv;
 
-	g_get_current_time(&gtv);
-	g_time_val_add(&gtv, G_USEC_PER_SEC / 10);
 	/* get a request from caja */
-	dc = g_async_queue_timed_pop(dcc->command_queue, &gtv);
+	dc = g_async_queue_timeout_pop(dcc->command_queue, G_USEC_PER_SEC / 10);
 	if (dc != NULL) {
 	  break;
 	}
@@ -735,9 +732,9 @@ gboolean
 dropbox_command_client_is_connected(DropboxCommandClient *dcc) {
   gboolean command_connected;
 
-  g_mutex_lock(dcc->command_connected_mutex);
+  g_mutex_lock(&(dcc->command_connected_mutex));
   command_connected = dcc->command_connected;
-  g_mutex_unlock(dcc->command_connected_mutex);
+  g_mutex_unlock(&(dcc->command_connected_mutex));
 
   return command_connected;
 }
@@ -760,7 +757,7 @@ dropbox_command_client_request(DropboxCommandClient *dcc, DropboxCommand *dc) {
 void
 dropbox_command_client_setup(DropboxCommandClient *dcc) {
   dcc->command_queue = g_async_queue_new();
-  dcc->command_connected_mutex = g_mutex_new();
+  g_mutex_init(&(dcc->command_connected_mutex));
   dcc->command_connected = FALSE;
   dcc->ca_hooklist = NULL;
 
@@ -814,8 +811,7 @@ void
 dropbox_command_client_start(DropboxCommandClient *dcc) {
   /* setup the connect to the command server */
   debug("starting command thread");
-  g_thread_create((gpointer (*)(gpointer data)) dropbox_command_client_thread,
-		  dcc, FALSE, NULL);
+  g_thread_new(NULL, (GThreadFunc) dropbox_command_client_thread, dcc);
 }
 
 /* thread safe */
