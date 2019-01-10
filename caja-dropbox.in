@@ -1384,10 +1384,10 @@ Any specified path must be within Dropbox.
                     console_print(u"Dropbox daemon stopped.")
         except DropboxCommand.CouldntConnectError, e:
             console_print(u"Dropbox isn't running!")
-    elif len(args) == 1 and args[0] == u"list":
+    elif len(args) == 1 and args[0].decode(sys.getfilesystemencoding()) == u"list":
         exclude([])
     elif len(args) >= 2:
-        sub_command = args[0]
+        sub_command = args[0].decode(sys.getfilesystemencoding())
         paths = args[1:]
         absolute_paths = [unicode_abspath(path.decode(sys.getfilesystemencoding())) for path in paths]
         if sub_command == u"add":
