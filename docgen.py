@@ -5,7 +5,7 @@ import codecs
 
 # heeeheee
 env = {"__name__":"__notmain__"}
-execfile("caja-dropbox", env)
+exec(open("caja-dropbox").read(), env)
 commands = env["commands"]
 
 with codecs.open("AUTHORS", "r", "utf-8") as afile:
