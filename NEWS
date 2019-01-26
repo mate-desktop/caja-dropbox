@@ -1,5 +1,25 @@
 ### caja-dropbox 1.21.0
 
+  * Python 3 update for dropbox-cli
+  * Add Keywords entry to desktop file
+  * Use cross-compilation-safe pkg-config macro.
+  * Remove deprecated glib2.0 API calls
+  * Use GIR bindings instead of pygtk
+  * fix UnicodeWarning when exclude command is used with non-latin args
+  * Update to redesigned icons
+  * small caja-dropbox.in fixes
+  * Add a new "dropbox update" command
+  * Unlink files that are going to be replaced by the unpack
+  * Validate that Dropbox runs after downloading it
+  * Use python-gpg instead of python-gpgme
+  * Explicitly load using python2 interpreter
+  * Refer to .dropbox-dist in only one place
+  * fixed 'exclude command raise UnicodeDecodeError'
+  * Avoid reading or writing invalid memory addresses
+  * Display link url on status
+  * Update dropbox.py with shmodel, proxy, and throttle features.
+  * update Copyright year
+
 ### caja-dropbox 1.20.0
 
   * require GLib 2.50
