@@ -1080,7 +1080,6 @@ class Translator(nodes.NodeVisitor):
         self.depart_admonition()
 
     def unimplemented_visit(self, node):
-        raise NotImplementedError(node.astext())
         raise NotImplementedError('visiting unimplemented node type: %s'
                                   % node.__class__.__name__)
 
