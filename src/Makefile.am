@@ -2,7 +2,11 @@ AM_CPPFLAGS =						\
 	-I$(top_srcdir)					\
 	-I$(top_builddir)
 
+if CUSTOM_CAJA_EXTENSION_DIR
 caja_extensiondir=$(CAJA_EXTENSION_DIR)
+else
+caja_extensiondir=$(libdir)/$(CAJA_EXTENSION_DIR)
+endif
 
 caja_extension_LTLIBRARIES=libcaja-dropbox.la
 
