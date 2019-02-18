@@ -1,4 +1,5 @@
 from __future__ import unicode_literals
+import os
 import sys
 import datetime
 import codecs
@@ -8,7 +9,9 @@ env = {"__name__":"__notmain__"}
 exec(open("caja-dropbox").read(), env)
 commands = env["commands"]
 
-with codecs.open("AUTHORS", "r", "utf-8") as afile:
+selfpath = os.path.abspath(sys.argv[0])
+top_srcdir = os.path.dirname(selfpath)
+with codecs.open(os.path.join(top_srcdir, "AUTHORS"), "r", "utf-8") as afile:
     authors = '| ' + afile.read().replace('\n', '\n| ')
 
 with codecs.open(sys.argv[2], "r", encoding="utf-8") as infile:

@@ -1,3 +1,4 @@
+import os
 import sys
 import gi
 gi.require_version('GdkPixbuf', '2.0')
@@ -13,8 +14,10 @@ def replace_many(src2dest, buf):
     return src_re.sub(replace_repl, buf)
 
 if __name__ == '__main__':
-    pixbuf64 = GdkPixbuf.Pixbuf.new_from_file("data/icons/hicolor/64x64/apps/caja-dropbox.png")
-    pixbuf16 = GdkPixbuf.Pixbuf.new_from_file("data/icons/hicolor/16x16/apps/caja-dropbox.png")
+    selfpath = os.path.abspath(sys.argv[0])
+    top_srcdir = os.path.dirname(selfpath)
+    pixbuf64 = GdkPixbuf.Pixbuf.new_from_file(os.path.join(top_srcdir, "data/icons/hicolor/64x64/apps/caja-dropbox.png"))
+    pixbuf16 = GdkPixbuf.Pixbuf.new_from_file(os.path.join(top_srcdir, "data/icons/hicolor/16x16/apps/caja-dropbox.png"))
     src2dest = {'@PACKAGE_VERSION@': sys.argv[1],
                 '@DESKTOP_FILE_DIR@': sys.argv[2],
                 '@IMAGEDATA64@': ("GdkPixbuf.Pixbuf.new_from_data(%r, GdkPixbuf.Colorspace.RGB, %r, %r, %r, %r, %r)" %
