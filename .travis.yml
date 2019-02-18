@@ -5,12 +5,6 @@ language: bash
 services:
   - docker
 
-# Trigger only on the travis branch
-# Remove the lines if every thing is ok.
-branches:
-  only:
-  - travis
-
 before_install:
   - curl -Ls -o docker-build https://github.com/mate-desktop/mate-dev-scripts/raw/master/travis/docker-build
   - chmod +x docker-build
@@ -36,7 +30,7 @@ env:
 requires:
   archlinux:
     # Useful URL: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=caja-dropbox
-    - caja 
+    - caja
     - gcc
     - git
     - glib2
@@ -59,14 +53,14 @@ requires:
 
   fedora:
     # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja-dropbox.git
+    - caja-devel
     - gcc
     - git
     - make
-    - redhat-rpm-config
-    - caja-devel
+    - mate-common
     - python3-docutils
     - python3-gobject
-    - mate-common
+    - redhat-rpm-config
 
   ubuntu:
     - git
