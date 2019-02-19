@@ -91,7 +91,11 @@ if test -z "$CAJA_EXTENSION_DIR"; then
     custom_caja_extension_dir=false
 fi
 
-AC_MSG_RESULT([${CAJA_EXTENSION_DIR}])
+if test x$custom_caja_extension_dir = xtrue; then
+    AC_MSG_RESULT([${CAJA_EXTENSION_DIR}])
+else
+    AC_MSG_RESULT([${libdir}/${CAJA_EXTENSION_DIR}])
+fi
 AM_CONDITIONAL([CUSTOM_CAJA_EXTENSION_DIR], [test x$custom_caja_extension_dir = xtrue])
 AC_SUBST(CAJA_EXTENSION_DIR)
 
