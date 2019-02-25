@@ -1,3 +1,12 @@
+### caja-dropbox 1.22.0
+
+  * fix distcheck about caja_extension_dir
+  * Initialize Travis CI support
+  * Fix distcheck fail
+  * use only Python 3 during the build to complete the migration
+  * migrate from python2 to python3 of rst2man.py
+  * remove more -u modifier for dropbox-cli
+
 ### caja-dropbox 1.21.0
 
   * Python 3 update for dropbox-cli
