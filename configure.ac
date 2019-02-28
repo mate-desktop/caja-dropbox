@@ -81,20 +81,16 @@ if test -n "$with_caja_extension_dir"; then
     CAJA_EXTENSION_DIR=$with_caja_extension_dir
     custom_caja_extension_dir=true
 else
-    CAJA_EXTENSION_DIR=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
-    CAJA_EXTENSION_DIR=${CAJA_EXTENSION_DIR#`$PKG_CONFIG --variable=libdir libcaja-extension`}
+    CAJA_EXTENSION_DIR_SYS=`$PKG_CONFIG --variable=extensiondir libcaja-extension`
+    CAJA_EXTENSION_DIR=${CAJA_EXTENSION_DIR_SYS#`$PKG_CONFIG --variable=libdir libcaja-extension`}
     CAJA_EXTENSION_DIR=${CAJA_EXTENSION_DIR#/}
-    custom_caja_extension_dir=false
-fi
-if test -z "$CAJA_EXTENSION_DIR"; then
-    CAJA_EXTENSION_DIR='caja/extensions-2.0'
     custom_caja_extension_dir=false
 fi
 
 if test x$custom_caja_extension_dir = xtrue; then
     AC_MSG_RESULT([${CAJA_EXTENSION_DIR}])
 else
-    AC_MSG_RESULT([${libdir}/${CAJA_EXTENSION_DIR}])
+    AC_MSG_RESULT([${CAJA_EXTENSION_DIR_SYS}])
 fi
 AM_CONDITIONAL([CUSTOM_CAJA_EXTENSION_DIR], [test x$custom_caja_extension_dir = xtrue])
 AC_SUBST(CAJA_EXTENSION_DIR)
