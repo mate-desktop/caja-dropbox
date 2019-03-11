@@ -74,6 +74,7 @@ requires:
     # Useful URL: https://salsa.debian.org/debian-mate-team/caja-dropbox
     - clang
     - clang-tools
+    - gcc
     - git
     - libcaja-extension-dev
     - libglib2.0-dev
