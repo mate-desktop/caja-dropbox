@@ -1,3 +1,8 @@
+### caja-dropbox 1.22.1
+
+  * Use CAJA_EXTENSION_DIR_SYS to save and show system caja extension dir
+  * show full path of caja-extension-dir
+
 ### caja-dropbox 1.22.0
 
   * fix distcheck about caja_extension_dir
