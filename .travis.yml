@@ -18,10 +18,10 @@ install:
   - sudo apt-get install -y python3-pip python3-setuptools
   - sudo pip3 install --upgrade pip
   - sudo pip install PyGithub
-  - ./docker-build --name ${DISTRO} --config .travis.yml --install
+  - ./docker-build --name ${DISTRO} --config .build.yml --install
 
 script:
-  - ./docker-build --name ${DISTRO} --verbose --config .travis.yml --build scripts
+  - ./docker-build --name ${DISTRO} --verbose --config .build.yml --build scripts
 
 deploy:
   - provider: pages
@@ -35,7 +35,7 @@ deploy:
       all_branches: true
       condition: ${DISTRO} =~ ^fedora.*$
   - provider: script
-    script: ./docker-build --verbose --config .travis.yml --release github
+    script: ./docker-build --verbose --config .build.yml --release github
     skip_cleanup: true
     on:
       tags: true
@@ -58,111 +58,3 @@ env:
   - DISTRO="fedora:30"
   - DISTRO="ubuntu:19.10"
 
-##########################################################
-# THE FOLLOWING LINES IS USED BY docker-build
-##########################################################
-requires:
-  archlinux:
-    # Useful URL: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=caja-dropbox
-    - clang
-    - caja
-    - gcc
-    - git
-    - glib2
-    - make
-    - mate-common
-    - python-docutils
-    - python-gobject
-    - which
-
-  debian:
-    # Useful URL: https://github.com/mate-desktop/debian-packages
-    # Useful URL: https://salsa.debian.org/debian-mate-team/caja-dropbox
-    - clang
-    - clang-tools
-    - cppcheck
-    - gcc
-    - git
-    - libcaja-extension-dev
-    - libglib2.0-dev
-    - make
-    - mate-common
-    - python3-docutils
-    - python3-gi
-
-  fedora:
-    # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja-dropbox.git
-    - caja-devel
-    - clang-analyzer
-    - clang
-    - cppcheck-htmlreport
-    - gcc
-    - git
-    - make
-    - mate-common
-    - python3-docutils
-    - python3-gobject
-    - redhat-rpm-config
-
-  ubuntu:
-    - clang
-    - clang-tools
-    - git
-    - libcaja-extension-dev
-    - libglib2.0-dev
-    - make
-    - mate-common
-    - python3-docutils
-    - python3-gi
-
-variables:
-  - CFLAGS="-Wall -Werror=format-security -Wredundant-decls"
-  - 'CHECKERS="
-    -enable-checker deadcode.DeadStores
-    -enable-checker alpha.deadcode.UnreachableCode
-    -enable-checker alpha.core.CastSize
-    -enable-checker alpha.core.CastToStruct
-    -enable-checker alpha.core.IdenticalExpr
-    -enable-checker alpha.core.SizeofPtr
-    -enable-checker alpha.security.ArrayBoundV2
-    -enable-checker alpha.security.MallocOverflow
-    -enable-checker alpha.security.ReturnPtrRange
-    -enable-checker alpha.unix.SimpleStream
-    -enable-checker alpha.unix.cstring.BufferOverlap
-    -enable-checker alpha.unix.cstring.NotNullTerminated
-    -enable-checker alpha.unix.cstring.OutOfBounds
-    -enable-checker alpha.core.FixedAddr
-    -enable-checker security.insecureAPI.strcpy"'
-
-build_scripts:
-  - ./autogen.sh
-  - scan-build $CHECKERS ./configure
-  - if [ $CPU_COUNT -gt 1 ]; then
-  -     scan-build $CHECKERS --keep-cc -o html-report make -j $CPU_COUNT
-  - else
-  -     scan-build $CHECKERS --keep-cc -o html-report make
-  - fi
-  - if [ ${DISTRO_NAME} == "debian" ];then
-  -     cppcheck --enable=warning,style,performance,portability,information,missingInclude .
-  - fi
-
-after_scripts:
-  - if [ ${DISTRO_NAME} == "fedora" ];then
-  -   cppcheck --xml --output-file=cppcheck.xml --enable=warning,style,performance,portability,information,missingInclude .
-  -   cppcheck-htmlreport --title=${REPO_NAME} --file=cppcheck.xml --report-dir=cppcheck-htmlreport
-  -   ./gen-index -l 20 -i https://github.com/${OWNER_NAME}/mate-icon-theme/raw/master/mate/16x16/apps/system-file-manager.png
-  - fi
-  - make distcheck
-
-releases:
-  draft: false
-  prerelease: false
-  checksum: true
-  file_glob: true
-  files: caja-dropbox-*.tar.xz
-  github_release:
-    tags: true
-    overwrite: true
-    base_version: 1.20.0
-    notify_servers:
-      - https://release.mate-desktop.org/release
