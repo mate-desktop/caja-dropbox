@@ -1,0 +1,65 @@
+##########################################################
+# THE FOLLOWING LINES IS USED BY docker-build
+##########################################################
+requires:
+  archlinux:
+    # Useful URL: https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=caja-dropbox
+    - caja
+    - gcc
+    - git
+    - glib2
+    - make
+    - mate-common
+    - python-docutils
+    - python-gobject
+    - which
+
+  debian:
+    # Useful URL: https://github.com/mate-desktop/debian-packages
+    # Useful URL: https://salsa.debian.org/debian-mate-team/caja-dropbox
+    - git
+    - libcaja-extension-dev
+    - libglib2.0-dev
+    - make
+    - mate-common
+    - python3-docutils
+    - python3-gi
+
+  fedora:
+    # Useful URL: https://src.fedoraproject.org/cgit/rpms/caja-dropbox.git
+    - caja-devel
+    - gcc
+    - git
+    - make
+    - mate-common
+    - python3-docutils
+    - python3-gobject
+    - redhat-rpm-config
+
+  ubuntu:
+    - git
+    - libcaja-extension-dev
+    - libglib2.0-dev
+    - make
+    - mate-common
+    - python3-docutils
+    - python3-gi
+
+variables:
+  - CFLAGS="-Wall -Werror=format-security"
+
+after_scripts:
+  - make distcheck
+
+releases:
+  draft: false
+  prerelease: false
+  checksum: true
+  file_glob: true
+  files: caja-dropbox-*.tar.xz
+  github_release:
+    tags: true
+    overwrite: true
+    base_version: 1.20.0
+    notify_servers:
+      - https://release.mate-desktop.org/release
