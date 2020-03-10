@@ -46,6 +46,7 @@ requires:
   ubuntu:
     - clang
     - clang-tools
+    - gcc
     - git
     - libcaja-extension-dev
     - libglib2.0-dev
