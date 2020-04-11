@@ -1,6 +1,7 @@
-AM_CPPFLAGS =						\
-	-I$(top_srcdir)					\
-	-I$(top_builddir)
+AM_CPPFLAGS = \
+	-I$(top_srcdir) \
+	-I$(top_builddir) \
+	$(WARN_CFLAGS)
 
 if CUSTOM_CAJA_EXTENSION_DIR
 caja_extensiondir=$(CAJA_EXTENSION_DIR)
