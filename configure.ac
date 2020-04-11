@@ -9,6 +9,8 @@ AC_PREFIX_DEFAULT(/usr)
 
 AC_CONFIG_HEADERS(config.h)
 
+MATE_COMPILE_WARNINGS
+
 # not ready for i18n yet
 #AC_PROG_INTLTOOL([0.29])
 
@@ -130,6 +132,23 @@ AC_CONFIG_FILES([
 	data/icons/hicolor/64x64/apps/Makefile
 	data/icons/hicolor/256x256/Makefile
 	data/icons/hicolor/256x256/apps/Makefile
-	data/emblems/Makefile])
+	data/emblems/Makefile
+])
 
 AC_OUTPUT
+
+dnl ---------------------------------------------------------------------------
+dnl - Show summary
+dnl ---------------------------------------------------------------------------
+
+echo "
+       caja-dropbox $VERSION
+       `echo caja-dropbox $VERSION | sed "s/./=/g"`
+
+       prefix:                     ${prefix}
+       compiler:                   ${CC}
+       cflags:                     ${CFLAGS}
+       warning flags:              ${WARN_CFLAGS}
+       custom caja extension dir:  ${CAJA_EXTENSION_DIR}
+       system caja extension dir:  ${CAJA_EXTENSION_DIR_SYS}
+"
