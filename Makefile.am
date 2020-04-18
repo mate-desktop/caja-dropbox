@@ -15,6 +15,10 @@ caja-dropbox.1: $(top_srcdir)/caja-dropbox.txt.in caja-dropbox $(top_srcdir)/doc
 
 SUBDIRS = data src
 
+DISTCHECK_CONFIGURE_FLAGS = \
+    --enable-compile-warnings=no \
+    CFLAGS='-Wno-deprecated-declarations'
+
 # Build ChangeLog from GIT  history
 ChangeLog:
 	$(AM_V_GEN) if test -d $(top_srcdir)/.git; then \
