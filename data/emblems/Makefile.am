@@ -6,3 +6,4 @@ emblem-dropbox-unsyncable.icon emblem-dropbox-unsyncable.png
 
 EXTRA_DIST = $(emblem_DATA)
 
+-include $(top_srcdir)/git.mk

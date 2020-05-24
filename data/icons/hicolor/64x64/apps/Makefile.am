@@ -7,3 +7,5 @@ iconsdir = $(themedir)/$(size)/$(context)
 icons_DATA = caja-dropbox.png
 
 EXTRA_DIST = $(icons_DATA)
+
+-include $(top_srcdir)/git.mk

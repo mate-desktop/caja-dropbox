@@ -10,3 +10,5 @@ EXTRA_DIST = $(application_DATA)
 CLEANFILES = $(extension_data)
 
 SUBDIRS = icons emblems
+
+-include $(top_srcdir)/git.mk

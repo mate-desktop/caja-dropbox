@@ -42,3 +42,5 @@ libcaja_dropbox_la_SOURCES = \
 
 libcaja_dropbox_la_LDFLAGS = -module -avoid-version
 libcaja_dropbox_la_LIBADD  = $(CAJA_LIBS) $(GLIB_LIBS)
+
+-include $(top_srcdir)/git.mk
