@@ -6,6 +6,7 @@ Comment=Installs and launches proprietary Dropbox cloud software
 Exec=caja-dropbox start -i
 Terminal=false
 Type=Application
+# Translators: Do NOT translate or transliterate this text (this is an icon file name)!
 Icon=caja-dropbox
 Categories=Network;FileTransfer;
 Keywords=file;synchronization;sharing;collaboration;cloud;storage;backup;

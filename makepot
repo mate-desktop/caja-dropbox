@@ -1,0 +1,6 @@
+#! /bin/sh
+
+PACKAGE=caja-dropbox;
+
+make -C po $PACKAGE.pot && mv po/$PACKAGE.pot .
+sed -i "/#, fuzzy/d" $PACKAGE.pot

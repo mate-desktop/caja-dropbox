@@ -20,6 +20,8 @@ if __name__ == '__main__':
     pixbuf16 = GdkPixbuf.Pixbuf.new_from_file(os.path.join(top_srcdir, "data/icons/hicolor/16x16/apps/caja-dropbox.png"))
     src2dest = {'@PACKAGE_VERSION@': sys.argv[1],
                 '@DESKTOP_FILE_DIR@': sys.argv[2],
+                '@GETTEXT_PACKAGE@': sys.argv[3],
+                '@LOCALEDIR@': sys.argv[4],
                 '@IMAGEDATA64@': ("GdkPixbuf.Pixbuf.new_from_data(%r, GdkPixbuf.Colorspace.RGB, %r, %r, %r, %r, %r)" %
                                   (pixbuf64.get_pixels(), pixbuf64.get_has_alpha(), pixbuf64.get_bits_per_sample(),
                                    pixbuf64.get_width(), pixbuf64.get_height(), pixbuf64.get_rowstride())),
