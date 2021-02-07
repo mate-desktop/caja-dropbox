@@ -1,6 +1,6 @@
 # Initialization
 
-AC_INIT([caja-dropbox], [1.24.0], [https://mate-desktop.org/])
+AC_INIT([caja-dropbox], [1.24.0], [https://mate-desktop.org])
 
 AM_INIT_AUTOMAKE([1.9 tar-ustar dist-xz foreign no-dist-gzip])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
@@ -12,8 +12,14 @@ AC_CONFIG_HEADERS(config.h)
 
 MATE_COMPILE_WARNINGS
 
-# not ready for i18n yet
-#AC_PROG_INTLTOOL([0.29])
+# gettext
+GETTEXT_PACKAGE=AC_PACKAGE_NAME
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", [gettext package])
+
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.8])
+AM_CONDITIONAL([USE_NLS], [test "x${USE_NLS}" = "xyes"])
 
 # Dependency checks
 CAJA_REQUIRED=1.17.1
@@ -116,7 +122,7 @@ AC_CONFIG_FILES([
 	Makefile
 	src/Makefile
 	data/Makefile
-	data/libcaja-dropbox.caja-extension
+	data/libcaja-dropbox.caja-extension.in
 	data/icons/Makefile
 	data/icons/hicolor/Makefile
 	data/icons/hicolor/16x16/Makefile
@@ -134,6 +140,7 @@ AC_CONFIG_FILES([
 	data/icons/hicolor/256x256/Makefile
 	data/icons/hicolor/256x256/apps/Makefile
 	data/emblems/Makefile
+	po/Makefile.in
 ])
 
 AC_OUTPUT
@@ -152,4 +159,5 @@ echo "
        warning flags:              ${WARN_CFLAGS}
        custom caja extension dir:  ${CAJA_EXTENSION_DIR}
        system caja extension dir:  ${CAJA_EXTENSION_DIR_SYS}
+       Native Language support:    ${USE_NLS}
 "

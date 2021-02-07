@@ -37,6 +37,7 @@ import _thread
 import time
 import traceback
 import urllib.request
+import gettext
 
 try:
     import gpg
@@ -49,25 +50,33 @@ except ImportError:
     except ImportError:
         gpgme = None
 
+try:
+    gettext.bindtextdomain("@GETTEXT_PACKAGE@","@LOCALEDIR@")
+    gettext.textdomain("@GETTEXT_PACKAGE@")
+    GETTEXT_PACKAGE = "@GETTEXT_PACKAGE@"
+except:
+    GETTEXT_PACKAGE = "caja-dropbox"
+_ = gettext.gettext
+
 from contextlib import closing, contextmanager
 from io import BytesIO
 from operator import methodcaller
 from os.path import relpath
 from posixpath import curdir, sep, pardir, join, abspath, commonprefix
 
-INFO = "Dropbox is the easiest way to share and store your files online. Want to learn more? Head to"
-LINK = "https://www.dropbox.com/"
-WARNING = "In order to use Dropbox, you must download the proprietary daemon."
-GPG_WARNING = "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed, we will not be able to verify binary signatures."
-ERROR_CONNECTING = "Trouble connecting to Dropbox servers. Maybe your internet connection is down, or you need to set your http_proxy environment variable."
-ERROR_SIGNATURE = "Downloaded binary does not match Dropbox signature, aborting install."
-ERROR_INVALID_DROPBOX = "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\nhttps://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+INFO = _("Dropbox is the easiest way to share and store your files online. Want to learn more? Head to")
+LINK = "https://www.dropbox.com"
+WARNING = _("In order to use Dropbox, you must download the proprietary daemon.")
+GPG_WARNING = _("Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed, we will not be able to verify binary signatures.")
+ERROR_CONNECTING = _("Trouble connecting to Dropbox servers. Maybe your internet connection is down, or you need to set your http_proxy environment variable.")
+ERROR_SIGNATURE = _("Downloaded binary does not match Dropbox signature, aborting install.")
+ERROR_INVALID_DROPBOX = _("Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\nhttps://www.dropbox.com/help/desktop-web/system-requirements#desktop")
 
 DOWNLOAD_LOCATION_FMT = "https://www.dropbox.com/download?plat=%s"
 SIGNATURE_LOCATION_FMT = "https://www.dropbox.com/download?plat=%s&signature=1"
 
-DOWNLOADING = "Downloading Dropbox... %d%%"
-UNPACKING = "Unpacking Dropbox... %d%%"
+DOWNLOADING = _("Downloading Dropbox... %d%%")
+UNPACKING = _("Unpacking Dropbox... %d%%")
 
 PARENT_DIR = os.path.expanduser("~")
 DROPBOXD_PATH = "%s/.dropbox-dist/dropboxd" % PARENT_DIR
@@ -439,7 +448,7 @@ if GUI_AVAILABLE:
 
             def __init__(self):
                 super(DownloadDialog, self).__init__(parent = None,
-                                                     title = "Dropbox Installation")
+                                                     title = _("Dropbox Installation"))
 
                 self.download = None
                 self.hovering = False
@@ -500,7 +509,7 @@ if GUI_AVAILABLE:
 
                 try:
                     if can_reroll_autostart():
-                        dont_show_again = Gtk.CheckButton.new_with_mnemonic("_Don't show this again")
+                        dont_show_again = Gtk.CheckButton.new_with_mnemonic(_("_Don't show this again"))
                         dont_show_again.connect('toggled', self.handle_dont_show_toggle)
                         dont_show_again.show()
 

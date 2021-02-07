@@ -20,10 +20,12 @@ requires:
     # Useful URL: https://github.com/mate-desktop/debian-packages
     # Useful URL: https://salsa.debian.org/debian-mate-team/caja-dropbox
     - autoconf-archive
+    - autopoint
     - clang
     - clang-tools
     - cppcheck
     - gcc
+    - gettext
     - git
     - libcaja-extension-dev
     - libglib2.0-dev
@@ -49,9 +51,11 @@ requires:
 
   ubuntu:
     - autoconf-archive
+    - autopoint
     - clang
     - clang-tools
     - gcc
+    - gettext
     - git
     - libcaja-extension-dev
     - libglib2.0-dev

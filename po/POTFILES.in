@@ -1,0 +1,5 @@
+# List of source files containing translatable strings.
+# Please keep this list in alphabetic order.
+caja-dropbox.in
+data/caja-dropbox.desktop.in
+data/libcaja-dropbox.caja-extension.in.in
