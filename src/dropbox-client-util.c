@@ -21,7 +21,7 @@
  *
  */
 
-#include <glib.h>
+#include "dropbox-client-util.h"
 
 static gchar chars_not_to_escape[] = {
   1, 2, 3, 4, 5, 6, 7, 8, 11, 12,
