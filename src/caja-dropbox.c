@@ -107,7 +107,7 @@ reset_file(CajaFileInfo *file) {
   caja_file_info_invalidate_extension_info(file);
 }
 
-gboolean
+static gboolean
 reset_all_files(CajaDropbox *cvs) {
   /* Only run this on the main loop or you'll cause problems. */
 
