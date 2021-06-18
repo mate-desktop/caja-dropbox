@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021
+# Quentin PAGÈS, 2021
 # 
 msgid ""
 msgstr ""
@@ -12,74 +12,63 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2021-03-05 22:16+0100\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021\n"
-"Language-Team: Catalan (https://www.transifex.com/mate/teams/13566/ca/)\n"
+"Last-Translator: Quentin PAGÈS, 2021\n"
+"Language-Team: Occitan (post 1500) (https://www.transifex.com/mate/teams/13566/oc/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: oc\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: caja-dropbox.in:67
 msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
 msgstr ""
-"Dropbox és la forma més senzilla de compartir i emmagatzemar fitxers en "
-"línia. Voleu obtenir més informació? Visiteu"
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
-msgstr "Per utilitzar Dropbox, heu de baixar el dimoni propietari."
+msgstr ""
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
 msgstr ""
-"Nota: python-gpg (python-gpgme per a Ubuntu 16.10 i versions anteriors) no "
-"està instal·lat, no es podran verificar les signatures binàries."
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
-"S'ha produït un error en connectar-se als servidors de Dropbox. Potser la "
-"vostra connexió a Internet està inactiva o heu d’establir la variable "
-"d’entorn http_proxy."
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
 msgstr ""
-"El fitxer binari baixat no coincideix amb la signatura de Dropbox, s'avorta "
-"la instal·lació."
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"No s'ha pogut iniciar el dimoni de Dropbox. Assegureu-vos que l’ordinador compleixi els requisits mínims:\n"
-"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "S'està baixant Dropbox... %d%%"
+msgstr "Telecargament Dropbox... %d%%"
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "S'està desempaquetant Dropbox... %d%%"
+msgstr ""
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Instal·lació de Dropbox"
+msgstr ""
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "_No ho tornis a mostar"
+msgstr "Mostrar _pas mai aqueste messatge"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
@@ -87,13 +76,13 @@ msgstr "Caja Dropbox"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr "Eina de sincronització de fitxers per a MATE"
+msgstr "Sincronizador de fichièrs per Mate"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr "Instal·leu i llançeu el programari propietari de núvol Dropbox"
+msgstr ""
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
-"fitxer;sincronització;compartir;col·laboració;núvol;emmagatzematge;còpia;seguretat;"
+"file;synchronization;sharing;collaboration;cloud;storage;backup;fichièr;"

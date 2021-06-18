@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021
+# Andika Triwidada <andika@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -12,74 +12,73 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2021-03-05 22:16+0100\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021\n"
-"Language-Team: Catalan (https://www.transifex.com/mate/teams/13566/ca/)\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>, 2021\n"
+"Language-Team: Indonesian (https://www.transifex.com/mate/teams/13566/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: caja-dropbox.in:67
 msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
 msgstr ""
-"Dropbox és la forma més senzilla de compartir i emmagatzemar fitxers en "
-"línia. Voleu obtenir més informació? Visiteu"
+"Dropbox adalah cara termudah untuk berbagi dan menyimpan berkas-berkas Anda "
+"daring. Ingin pelajari lebih lanjut? Pergilah ke"
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
-msgstr "Per utilitzar Dropbox, heu de baixar el dimoni propietari."
+msgstr "Untuk memakai Dropbox, Anda mesti mengunduh daemon proprietari."
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
 msgstr ""
-"Nota: python-gpg (python-gpgme per a Ubuntu 16.10 i versions anteriors) no "
-"està instal·lat, no es podran verificar les signatures binàries."
+"Catatan: python-gpg (python-gpgme untuk Ubuntu 16.10 dan yang lebih rendah) "
+"tidak terpasang, kami tidak akan bisa memverifikasi tanda tangan biner."
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
-"S'ha produït un error en connectar-se als servidors de Dropbox. Potser la "
-"vostra connexió a Internet està inactiva o heu d’establir la variable "
-"d’entorn http_proxy."
+"Ada masalah saat menyambung ke server Dropbox. Mungkin koneksi internet Anda"
+" sedang putus, atau Anda perlu menata variabel lingkungan http_proxy."
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
 msgstr ""
-"El fitxer binari baixat no coincideix amb la signatura de Dropbox, s'avorta "
-"la instal·lació."
+"Biner yang diunduh tidak cocok dengan tanda tangan Dropbox, menggugurkan "
+"pemasangan."
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"No s'ha pogut iniciar el dimoni de Dropbox. Assegureu-vos que l’ordinador compleixi els requisits mínims:\n"
+"Tidak dapat memulai daemon Dropbox. Pastikan bahwa komputer Anda memenuhi persyaratan minimum:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "S'està baixant Dropbox... %d%%"
+msgstr "Mengundug Dropbox,,, %d%%"
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "S'està desempaquetant Dropbox... %d%%"
+msgstr "Membuka Kemasan Dropbox... %d%%"
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Instal·lació de Dropbox"
+msgstr "Instalasi Dropbox"
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "_No ho tornis a mostar"
+msgstr "_Jangan tampilkan lagi pesan ini"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
@@ -87,13 +86,13 @@ msgstr "Caja Dropbox"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr "Eina de sincronització de fitxers per a MATE"
+msgstr "Penyelaras Berkas Untuk Mate"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr "Instal·leu i llançeu el programari propietari de núvol Dropbox"
+msgstr ""
+"Memasang dan meluncurkan perangkat lunak cloud Dropbox yang proprietari"
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
-msgstr ""
-"fitxer;sincronització;compartir;col·laboració;núvol;emmagatzematge;còpia;seguretat;"
+msgstr "berkas;penyelarasan;berbagi;kolaborasi;cloud;penyimpanan;cadangan;"

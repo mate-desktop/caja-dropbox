@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR MATE Desktop Environment team
+# This file is distributed under the same license as the caja-dropbox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Микола Ткач <chistomov@gmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: caja-dropbox 1.24.0\n"
+"Report-Msgid-Bugs-To: https://mate-desktop.org\n"
+"POT-Creation-Date: 2021-03-05 22:16+0100\n"
+"PO-Revision-Date: 2021-03-05 20:20+0000\n"
+"Last-Translator: Микола Ткач <chistomov@gmail.com>, 2021\n"
+"Language-Team: Ukrainian (https://www.transifex.com/mate/teams/13566/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: caja-dropbox.in:67
+msgid ""
+"Dropbox is the easiest way to share and store your files online. Want to "
+"learn more? Head to"
+msgstr ""
+"Dropbox — це найпростіший спосіб ділитися та зберігати файли в Інтернеті. "
+"Волієте дізнатись більше? Прямуйте до"
+
+#: caja-dropbox.in:69
+msgid "In order to use Dropbox, you must download the proprietary daemon."
+msgstr ""
+"Для того, щоб використовувати Dropbox, потрібно завантажити власницький "
+"демон."
+
+#: caja-dropbox.in:70
+msgid ""
+"Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
+" we will not be able to verify binary signatures."
+msgstr ""
+"Нотатка: python-gpg (python-gpgme для Ubuntu 16.10 і старіших версій) не "
+"встановлено, ми не зможемо перевірити двійкові підписи."
+
+#: caja-dropbox.in:71
+msgid ""
+"Trouble connecting to Dropbox servers. Maybe your internet connection is "
+"down, or you need to set your http_proxy environment variable."
+msgstr ""
+"Проблема з під'єднанням до серверів Dropbox. Можливо, з’єднання з Інтернетом"
+" перервано, чи вам потрібно встановити змінну середовища http_proxy."
+
+#: caja-dropbox.in:72
+msgid "Downloaded binary does not match Dropbox signature, aborting install."
+msgstr ""
+"Завантажений двійковий файл не відповідає підпису Dropbox, встановлення "
+"перервано."
+
+#: caja-dropbox.in:73
+msgid ""
+"Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+msgstr ""
+"Не вдалося запустити демон Dropbox. Переконайтесь, що ваш комп’ютер відповідає щонайменшим вимогам:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+
+#: caja-dropbox.in:78
+#, c-format
+msgid "Downloading Dropbox... %d%%"
+msgstr "Завантаження Dropbox ... %d%%"
+
+#: caja-dropbox.in:79
+#, c-format
+msgid "Unpacking Dropbox... %d%%"
+msgstr "Розпакування Dropbox ...%d%%"
+
+#: caja-dropbox.in:451
+msgid "Dropbox Installation"
+msgstr "Встановлення Dropbox"
+
+#: caja-dropbox.in:512
+msgid "_Don't show this again"
+msgstr "_Більше цього не показувати"
+
+#: data/caja-dropbox.desktop.in:4
+msgid "Caja Dropbox"
+msgstr "Caja Dropbox"
+
+#: data/caja-dropbox.desktop.in:5
+msgid "File Synchronizer For Mate"
+msgstr "Синхронізатор файлів для Mate"
+
+#: data/caja-dropbox.desktop.in:6
+msgid "Installs and launches proprietary Dropbox cloud software"
+msgstr ""
+"Встановлює та запускає власницьке хмарне програмне забезпечення Dropbox"
+
+#: data/caja-dropbox.desktop.in:13
+msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
+msgstr ""
+"файл;синхронізація;спільний доступ;співпраця;хмара;зберігання;резервне "
+"копіювання;"

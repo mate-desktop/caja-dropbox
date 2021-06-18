@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -12,88 +12,86 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2021-03-05 22:16+0100\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2021\n"
-"Language-Team: Catalan (https://www.transifex.com/mate/teams/13566/ca/)\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>, 2021\n"
+"Language-Team: Serbian (https://www.transifex.com/mate/teams/13566/sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ca\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: sr\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: caja-dropbox.in:67
 msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
 msgstr ""
-"Dropbox és la forma més senzilla de compartir i emmagatzemar fitxers en "
-"línia. Voleu obtenir més informació? Visiteu"
+"Дропбокс је најлакши начин за дељење и чување ваших датотека на мрежи. "
+"Желите да сазнате више? Само напред"
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
-msgstr "Per utilitzar Dropbox, heu de baixar el dimoni propietari."
+msgstr "Да бисте користили Дропбокс, морате преузети власничког демона."
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
 msgstr ""
-"Nota: python-gpg (python-gpgme per a Ubuntu 16.10 i versions anteriors) no "
-"està instal·lat, no es podran verificar les signatures binàries."
+"Напомена: „python-gpg“ („python-gpgme“ за Убунту 16.10 и старије) није "
+"инсталиран, нећемо бити у могућности да проверимо бинарне потписе."
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
-"S'ha produït un error en connectar-se als servidors de Dropbox. Potser la "
-"vostra connexió a Internet està inactiva o heu d’establir la variable "
-"d’entorn http_proxy."
+"Проблеми повезивања на Дропбокс сервере. Можда је ваша Интернет веза пала "
+"или треба да поставите променљиву „http_proxy“ окружења."
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
 msgstr ""
-"El fitxer binari baixat no coincideix amb la signatura de Dropbox, s'avorta "
-"la instal·lació."
+"Преузете бинарне не одговарају Дропбокс потпису, прекодам инсталацију."
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"No s'ha pogut iniciar el dimoni de Dropbox. Assegureu-vos que l’ordinador compleixi els requisits mínims:\n"
+"Не могу да покренем Дропбокс демона. Уверите се да ваш рачунар задовољава минимум захтева:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "S'està baixant Dropbox... %d%%"
+msgstr "Преузимам Дропбокс... %d%%"
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "S'està desempaquetant Dropbox... %d%%"
+msgstr "Распакујем Дропбокс... %d%%"
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Instal·lació de Dropbox"
+msgstr "Инсталација Дропбокса"
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "_No ho tornis a mostar"
+msgstr "_Не приказуј ово више"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
-msgstr "Caja Dropbox"
+msgstr "Цајин Дропбокс"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr "Eina de sincronització de fitxers per a MATE"
+msgstr "Усаглашавач датотека за Мејт"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr "Instal·leu i llançeu el programari propietari de núvol Dropbox"
+msgstr "Инсталирајте и покрените власнички софтвер Дропбокс облака"
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
-"fitxer;sincronització;compartir;col·laboració;núvol;emmagatzematge;còpia;seguretat;"
+"датотека;усаглашавање;дељење;сарадња;облак;смештај;резерва;file;synchronization;sharing;collaboration;cloud;storage;backup;"
