@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Luna Jernberg <bittin@cafe8bitar.se>, 2021
+# Tubuntu, 2021
 # 
 msgid ""
 msgstr ""
@@ -12,63 +12,76 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2021-06-18 21:16+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2021\n"
-"Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
+"Last-Translator: Tubuntu, 2021\n"
+"Language-Team: French (https://www.transifex.com/mate/teams/13566/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: caja-dropbox.in:67
 msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
 msgstr ""
+"Dropbox est le moyen le plus simple de partager et de stocker vos fichiers "
+"en ligne. Vous voulez en savoir plus ? Rendez-vous sur"
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
 msgstr ""
+"Afin d'utiliser Dropbox, vous devez télécharger le démon propriétaire."
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
 msgstr ""
+"Remarque : python-gpg (python-gpgme pour Ubuntu 16.10 et inférieur) n'est "
+"pas installé, nous ne serons pas en mesure de vérifier les signatures "
+"binaires."
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
+"Problèmes de connexion aux serveurs Dropbox. Votre connexion Internet est "
+"peut-être interrompue ou vous devez définir votre variable d'environnement "
+"http_proxy."
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
 msgstr ""
+"Le binaire téléchargé ne correspond pas à la signature de Dropbox, "
+"l'installation est interrompue."
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
+"Impossible de démarrer le démon Dropbox. Assurez-vous que votre ordinateur répond à la configuration minimale requise :\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "Laddar ner Dropbox... %d%%"
+msgstr "Téléchargement de Dropbox... %d%%"
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "Packar upp Dropbox... %d%%"
+msgstr "Dépaquetage de Dropbox... %d%%"
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Dropbox Installation"
+msgstr "Installation de Dropbox"
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "_Visa inte detta igen"
+msgstr "Ne plus jamais afficher ceci"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
@@ -76,12 +89,13 @@ msgstr "Caja Dropbox"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr ""
+msgstr "Synchroniseur de fichiers pour Mate"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr ""
+msgstr "Installe et lance le logiciel propriétaire de cloud Dropbox"
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
+"fichier;synchronisation;partage;collaboration;nuage;stockage;sauvegarde;"
