@@ -1,15 +1,19 @@
+### caja-dropbox 1.26.0
+
+  * update translations
+
 ### caja-dropbox 1.25.0
 
-    update translations
-    update copyright for 2021
-    dropbox-client-util: add missing include
-    caja-dropbox: reset_all_files is a static function
-    caja-dropbox.pot: use UTF-8 charset
-    Add i18n support
-    Remove USE_MATE2_MACROS from autogen.sh (legacy)
-    build: silent build warnings for distcheck
-    build: Silent building
-    use MATE_COMPILE_WARNINGS from mate-common
+  * update translations
+  * update copyright for 2021
+  * dropbox-client-util: add missing include
+  * caja-dropbox: reset_all_files is a static function
+  * caja-dropbox.pot: use UTF-8 charset
+  * Add i18n support
+  * Remove USE_MATE2_MACROS from autogen.sh (legacy)
+  * build: silent build warnings for distcheck
+  * build: Silent building
+  * use MATE_COMPILE_WARNINGS from mate-common
 
 ### caja-dropbox 1.24.0
 

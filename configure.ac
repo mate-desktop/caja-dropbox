@@ -1,6 +1,6 @@
 # Initialization
 
-AC_INIT([caja-dropbox], [1.25.0], [https://mate-desktop.org])
+AC_INIT([caja-dropbox], [1.26.0], [https://mate-desktop.org])
 
 AM_INIT_AUTOMAKE([1.9 tar-ustar dist-xz foreign no-dist-gzip])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
