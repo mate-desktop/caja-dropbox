@@ -934,6 +934,7 @@ caja_dropbox_register_type (GTypeModule *module) {
     sizeof (CajaDropbox),
     0,
     (GInstanceInitFunc) caja_dropbox_instance_init,
+    NULL
   };
 
   static const GInterfaceInfo menu_provider_iface_info = {
