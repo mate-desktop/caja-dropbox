@@ -8,9 +8,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja-dropbox 1.24.0\n"
+"Project-Id-Version: caja-dropbox 1.26.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2021-06-18 21:16+0200\n"
+"POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
 "Last-Translator: Alessandro Volturno <alelvb@inwind.it>, 2021\n"
 "Language-Team: Italian (https://www.transifex.com/mate/teams/13566/it/)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: it\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: caja-dropbox.in:67
 msgid ""
@@ -47,7 +47,7 @@ msgid ""
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
 "Problemi nel connettersi ai server Dropbox. La vostra connessione potrebbe "
-"essere disabilitata o occorre impostare la propria variabile d'ambiente "
+"essere disabilitata oppure occorre impostare la vostra variabile d'ambiente "
 "http_proxy."
 
 #: caja-dropbox.in:72
@@ -61,9 +61,8 @@ msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"Impossibile avviare il demone Dropbox. Assicurarsi che il proprio computer "
-"abbia i requisiti minimi richiesti: https://www.dropbox.com/help/desktop-web"
-"/system-requirements#desktop"
+"Impossibile avviare il demone Dropbox. Assicurarsi che il computer abbia i requisiti minimi richiesti:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
@@ -85,7 +84,7 @@ msgstr "Non mostrarlo più"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
-msgstr "Dropbox Caja"
+msgstr "Dropbox di Caja"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"

@@ -8,9 +8,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja-dropbox 1.24.0\n"
+"Project-Id-Version: caja-dropbox 1.26.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2021-06-18 21:16+0200\n"
+"POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/mate/teams/13566/id/)\n"

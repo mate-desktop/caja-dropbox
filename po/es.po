@@ -5,20 +5,21 @@
 # 
 # Translators:
 # Joel Barrios <darkshram@gmail.com>, 2021
+# Toni Estévez <toni.estevez@gmail.com>, 2021
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: caja-dropbox 1.24.0\n"
+"Project-Id-Version: caja-dropbox 1.26.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2021-06-18 21:16+0200\n"
+"POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Joel Barrios <darkshram@gmail.com>, 2021\n"
+"Last-Translator: Toni Estévez <toni.estevez@gmail.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/mate/teams/13566/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 #: caja-dropbox.in:67
 msgid ""
@@ -30,7 +31,7 @@ msgstr ""
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
-msgstr "Para utilizar Dropbox, debe descargar un programa privativo. "
+msgstr "Para usar Dropbox, debe descargar un programa privativo. "
 
 #: caja-dropbox.in:70
 msgid ""
@@ -96,3 +97,5 @@ msgstr "Instala e ejecuta el software privativo para nube de Dropbox "
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
+"archivo;sincronización;compartir;colaboración;nube;almacenamiento;copia de "
+"seguridad;"
