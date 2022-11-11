@@ -1,3 +1,10 @@
+### caja-dropbox 1.27.0
+
+  * tx: sync with transifex
+  * tx: update resource
+  * tx: migrate config file
+  * ci: drop -Wunused-parameter compiler cflag from debian build
+
 ### caja-dropbox 1.26.0
 
   * update translations
