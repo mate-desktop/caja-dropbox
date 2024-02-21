@@ -4,7 +4,8 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Tubuntu, 2021
+# 玉堂白鹤 <yjwork@qq.com>, 2021
+# Wenbin Lv <wenbin816@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,76 +13,65 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Tubuntu, 2021\n"
-"Language-Team: French (https://app.transifex.com/mate/teams/13566/fr/)\n"
+"Last-Translator: Wenbin Lv <wenbin816@gmail.com>, 2022\n"
+"Language-Team: Chinese (China) (https://app.transifex.com/mate/teams/13566/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: caja-dropbox.in:67
 msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
-msgstr ""
-"Dropbox est le moyen le plus simple de partager et de stocker vos fichiers "
-"en ligne. Vous voulez en savoir plus ? Rendez-vous sur"
+msgstr "Dropbox 是在线共享和存储文件的最简单方式。想了解更多？请前往"
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
-msgstr ""
-"Afin d'utiliser Dropbox, vous devez télécharger le démon propriétaire."
+msgstr "要使用 Dropbox，您必须下载专有守护程序。"
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
-msgstr ""
-"Remarque : python-gpg (python-gpgme pour Ubuntu 16.10 et inférieur) n'est "
-"pas installé, nous ne serons pas en mesure de vérifier les signatures "
-"binaires."
+msgstr "注意：未安装 python-gpg（对于 Ubuntu 16.10 或更低版本，为 python-gpgme），我们将无法验证二进制签名。"
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
-msgstr ""
-"Problèmes de connexion aux serveurs Dropbox. Votre connexion Internet est "
-"peut-être interrompue ou vous devez définir votre variable d'environnement "
-"http_proxy."
+msgstr "无法连接到 Dropbox 服务器。也许您的互联网连接已关闭，或者您需要设置 http_proxy 环境变量。"
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
-msgstr ""
-"Le binaire téléchargé ne correspond pas à la signature de Dropbox, "
-"l'installation est interrompue."
+msgstr "下载的二进制文件与 Dropbox 签名不匹配，中止安装。"
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"Impossible de démarrer le démon Dropbox. Assurez-vous que votre ordinateur répond à la configuration minimale requise :\n"
+"无法启动 Dropbox 守护进程。请确保您的计算机满足最低要求：\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "Téléchargement de Dropbox... %d%%"
+msgstr "下载 Dropbox... %d%%"
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "Dépaquetage de Dropbox... %d%%"
+msgstr "解包 Dropbox... %d%%"
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Installation de Dropbox"
+msgstr "Dropbox 安装"
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "Ne plus jamais afficher ceci"
+msgstr "不要再显示(_D)"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
@@ -89,13 +79,13 @@ msgstr "Caja Dropbox"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr "Synchroniseur de fichiers pour Mate"
+msgstr "Mate 文件同步器"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr "Installe et lance le logiciel propriétaire de cloud Dropbox"
+msgstr "安装并启动专有的 Dropbox 云软件"
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
-"fichier;synchronisation;partage;collaboration;nuage;stockage;sauvegarde;"
+"file;synchronization;sharing;collaboration;cloud;storage;backup;文件;同步;共享;协作;云;存储;备份;"

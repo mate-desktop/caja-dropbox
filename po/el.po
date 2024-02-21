@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR MATE Desktop Environment team
+# This file is distributed under the same license as the caja-dropbox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# Efstathios Iosifidis <iefstathios@gmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: caja-dropbox 1.26.0\n"
+"Report-Msgid-Bugs-To: https://mate-desktop.org\n"
+"POT-Creation-Date: 2022-10-29 15:35+0200\n"
+"PO-Revision-Date: 2021-03-05 20:20+0000\n"
+"Last-Translator: Efstathios Iosifidis <iefstathios@gmail.com>, 2021\n"
+"Language-Team: Greek (https://app.transifex.com/mate/teams/13566/el/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: caja-dropbox.in:67
+msgid ""
+"Dropbox is the easiest way to share and store your files online. Want to "
+"learn more? Head to"
+msgstr ""
+"Το Dropbox είναι ο ευκολότερος τρόπος για να διαμοιραστείτε και να "
+"αποθηκεύσετε τα αρχεία σας στο διαδίκτυο. Θέλετε να μάθετε περισσότερα; "
+"Επισκεφθείτε την"
+
+#: caja-dropbox.in:69
+msgid "In order to use Dropbox, you must download the proprietary daemon."
+msgstr ""
+"Για να χρησιμοποιήσετε το Dropbox, πρέπει να κάνετε λήψη του ιδιόκτητου "
+"λογισμικού."
+
+#: caja-dropbox.in:70
+msgid ""
+"Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
+" we will not be able to verify binary signatures."
+msgstr ""
+"Σημείωση: Το python-gpg (python-gpgme για Ubuntu 16.10 και κάτω) δεν είναι "
+"εγκατεστημένο, δεν θα μπορούμε να επαληθεύσουμε binary υπογραφές."
+
+#: caja-dropbox.in:71
+msgid ""
+"Trouble connecting to Dropbox servers. Maybe your internet connection is "
+"down, or you need to set your http_proxy environment variable."
+msgstr ""
+"Πρόβλημα σύνδεσης με διακομιστές Dropbox. Ίσως η σύνδεσή σας στο διαδίκτυο "
+"είναι εκτός λειτουργίας ή πρέπει να ορίσετε τη μεταβλητή περιβάλλοντος "
+"http_proxy."
+
+#: caja-dropbox.in:72
+msgid "Downloaded binary does not match Dropbox signature, aborting install."
+msgstr ""
+"Το δυαδικό αρχείο που έχει ληφθεί δεν ταιριάζει με την υπογραφή του Dropbox,"
+" γίνεται ματαίωση της εγκατάστασης."
+
+#: caja-dropbox.in:73
+msgid ""
+"Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+msgstr ""
+"Δεν ήταν δυνατή η εκκίνηση της υπηρεσίας Dropbox. Βεβαιωθείτε ότι ο υπολογιστής σας πληροί τις ελάχιστες απαιτήσεις:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+
+#: caja-dropbox.in:78
+#, c-format
+msgid "Downloading Dropbox... %d%%"
+msgstr "Γίνεται λήψη Dropbox... %d%%"
+
+#: caja-dropbox.in:79
+#, c-format
+msgid "Unpacking Dropbox... %d%%"
+msgstr "Γίνεται αποσυμπίεση Dropbox... %d%%"
+
+#: caja-dropbox.in:451
+msgid "Dropbox Installation"
+msgstr "Εγκατάσταση Dropbox"
+
+#: caja-dropbox.in:512
+msgid "_Don't show this again"
+msgstr "Να _μην εμφανίζεται ξανά"
+
+#: data/caja-dropbox.desktop.in:4
+msgid "Caja Dropbox"
+msgstr "Caja Dropbox"
+
+#: data/caja-dropbox.desktop.in:5
+msgid "File Synchronizer For Mate"
+msgstr "Πρόγραμμα συγχρονισμού αρχείων για το Mate"
+
+#: data/caja-dropbox.desktop.in:6
+msgid "Installs and launches proprietary Dropbox cloud software"
+msgstr "Εγκαθιστά και εκκινεί το ιδιόκτητο λογισμικό cloud, Dropbox"
+
+#: data/caja-dropbox.desktop.in:13
+msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
+msgstr ""
+"αρχείο;συγχρονισμός;κοινή χρήση;συνεργασία;νέφος;αποθήκευση;αντίγραφα "
+"ασφαλείας;file;synchronization;sharing;collaboration;cloud;storage;backup;"

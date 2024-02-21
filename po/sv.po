@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Luna Jernberg <bittin@cafe8bitar.se>, 2021
+# Luna Jernberg <droidbittin@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -12,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>, 2021\n"
-"Language-Team: Swedish (https://www.transifex.com/mate/teams/13566/sv/)\n"
+"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2023\n"
+"Language-Team: Swedish (https://app.transifex.com/mate/teams/13566/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -76,7 +76,7 @@ msgstr "Caja Dropbox"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr ""
+msgstr "Filsynkroniserare för Mate"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"

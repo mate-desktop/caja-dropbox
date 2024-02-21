@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Green, 2021
+# Green <usergreen@users.osdn.me>, 2024
 # 
 msgid ""
 msgstr ""
@@ -12,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Green, 2021\n"
-"Language-Team: Japanese (https://www.transifex.com/mate/teams/13566/ja/)\n"
+"Last-Translator: Green <usergreen@users.osdn.me>, 2024\n"
+"Language-Team: Japanese (https://app.transifex.com/mate/teams/13566/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -43,7 +43,7 @@ msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
-"Dropbox サーバーへの接続に問題があります。インターネット接続がダウンしているのかもしくは、http_proxy "
+"Dropbox サーバへの接続に問題があります。インターネット接続がダウンしているのかもしくは、http_proxy "
 "環境変数を設定する必要があるかも知れません。"
 
 #: caja-dropbox.in:72
