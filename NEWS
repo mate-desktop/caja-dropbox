@@ -1,6 +1,11 @@
+### caja-dropbox 1.28.0
+
+  * update translations
+  * fix -Wmissing-field-initializers
+
 ### caja-dropbox 1.27.0
 
-  * tx: sync with transifex
+  * update translations
   * tx: update resource
   * tx: migrate config file
   * ci: drop -Wunused-parameter compiler cflag from debian build
