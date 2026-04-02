@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: caja-dropbox 1.26.0\n"
+"Project-Id-Version: caja-dropbox 1.28.0\n"
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
-"POT-Creation-Date: 2022-10-29 15:35+0200\n"
+"POT-Creation-Date: 2021-03-05 20:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -67,18 +67,18 @@ msgstr ""
 msgid "_Don't show this again"
 msgstr ""
 
-#: data/caja-dropbox.desktop.in:4
+#: data/caja-dropbox.desktop.in:3
 msgid "Caja Dropbox"
 msgstr ""
 
-#: data/caja-dropbox.desktop.in:5
+#: data/caja-dropbox.desktop.in:4
 msgid "File Synchronizer For Mate"
 msgstr ""
 
-#: data/caja-dropbox.desktop.in:6
+#: data/caja-dropbox.desktop.in:5
 msgid "Installs and launches proprietary Dropbox cloud software"
 msgstr ""
 
-#: data/caja-dropbox.desktop.in:13
+#: data/caja-dropbox.desktop.in:12
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
