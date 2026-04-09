@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Luna Jernberg <droidbittin@gmail.com>, 2024
+# Benedikt Straub <benedikt-straub@web.de>, 2025
 # 
 msgid ""
 msgstr ""
@@ -12,12 +12,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2024\n"
-"Language-Team: Swedish (https://app.transifex.com/mate/teams/13566/sv/)\n"
+"Last-Translator: Benedikt Straub <benedikt-straub@web.de>, 2025\n"
+"Language-Team: Low German (https://app.transifex.com/mate/teams/13566/nds/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
+"Language: nds\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: caja-dropbox.in:67
@@ -25,62 +25,62 @@ msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
 msgstr ""
-"Dropbox är det enklaste sättet att dela och lagra dina filer online. Vill du lära dig mer? Gå till \n"
-" \n"
-" "
+"Dropbox is de lichteste Weg, diene Dateien im Internett so spiekern un to "
+"delen. Willst du mehr lehren? Bekiek"
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
 msgstr ""
-"För att kunna använda Dropbox måste du ladda ner den proprietära demonen."
+"Um Dropbox to bruken, muttst du de unfrejen Achtergrundprozess runnerladen."
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
 msgstr ""
-"Notera: python-gpg (python-gpgme för Ubuntu 16.10 och lägre) är inte "
-"installerat, vi kommer inte att kunna verifiera binära signaturer."
+"Wahrschau: python-gpg (python-gpgme för Ubuntu 16.10 un oller) is nich "
+"installeert, wi könen nich de Binäär-Unnerschriften prüfen."
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
-"Problem med att ansluta till Dropbox-servrar. Kanske är din "
-"internetanslutning nere, eller så måste du ställa in miljövariabeln "
-"http_proxy."
+"Probleem bi’m Verbinnen mit de Dropbox-Servern. Villicht büst du nich mit de"
+" Internett verbunnen, of du muttst diene http_proxy-Umgevens-Variaabel "
+"setten."
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
 msgstr ""
-"Nedladdad binär matchar inte Dropbox-signaturen, avbryter installationen."
+"Runnerlade Binäärdatei passt nich to de Dropbox-Unnerschrift, breckt dat "
+"Installeren of."
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"Kunde inte starta Dropbox-daemonen. Kontrollera att din dator uppfyller minimumkraven:\n"
-"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+"Kunn de Dropbox-Achtergrundprozess nich starten. Wees wiss, dat dien Reekner up de Minnst-Anförderns passt:\n"
+"https://www.dropbox.com/help/desktop-web/systeem-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "Laddar ner Dropbox... %d%%"
+msgstr "Lade Dropbox runner … %d%%"
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "Packar upp Dropbox... %d%%"
+msgstr "Packe Dropbox ut … %d%%"
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Dropbox Installation"
+msgstr "Dropbox Installeren"
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "_Visa inte detta igen"
+msgstr "Nich _weer wiesen"
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
@@ -88,13 +88,12 @@ msgstr "Caja Dropbox"
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr "Filsynkroniserare för Mate"
+msgstr "Datei-Gliekholler för MATE"
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr "Installerar och startar proprietär Dropbox molnprogramvara"
+msgstr "Installeert un start de unfreje Dropbox-Cloud-Software"
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
-msgstr ""
-"fil;synkronisering;delning;samarbete;moln;lagring;säkerhetskopiering; "
+msgstr "Datei;gliekhollen;delen;tosamenwarken;cloud;Spieker;Sekerheidskopie;"
