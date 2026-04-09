@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Luna Jernberg <droidbittin@gmail.com>, 2024
+# Transifex Bot <>, 2026
 # 
 msgid ""
 msgstr ""
@@ -12,12 +12,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://mate-desktop.org\n"
 "POT-Creation-Date: 2022-10-29 15:35+0200\n"
 "PO-Revision-Date: 2021-03-05 20:20+0000\n"
-"Last-Translator: Luna Jernberg <droidbittin@gmail.com>, 2024\n"
-"Language-Team: Swedish (https://app.transifex.com/mate/teams/13566/sv/)\n"
+"Last-Translator: Transifex Bot <>, 2026\n"
+"Language-Team: Estonian (https://app.transifex.com/mate/teams/13566/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
+"Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: caja-dropbox.in:67
@@ -25,76 +25,63 @@ msgid ""
 "Dropbox is the easiest way to share and store your files online. Want to "
 "learn more? Head to"
 msgstr ""
-"Dropbox är det enklaste sättet att dela och lagra dina filer online. Vill du lära dig mer? Gå till \n"
-" \n"
-" "
 
 #: caja-dropbox.in:69
 msgid "In order to use Dropbox, you must download the proprietary daemon."
 msgstr ""
-"För att kunna använda Dropbox måste du ladda ner den proprietära demonen."
 
 #: caja-dropbox.in:70
 msgid ""
 "Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed,"
 " we will not be able to verify binary signatures."
 msgstr ""
-"Notera: python-gpg (python-gpgme för Ubuntu 16.10 och lägre) är inte "
-"installerat, vi kommer inte att kunna verifiera binära signaturer."
 
 #: caja-dropbox.in:71
 msgid ""
 "Trouble connecting to Dropbox servers. Maybe your internet connection is "
 "down, or you need to set your http_proxy environment variable."
 msgstr ""
-"Problem med att ansluta till Dropbox-servrar. Kanske är din "
-"internetanslutning nere, eller så måste du ställa in miljövariabeln "
-"http_proxy."
 
 #: caja-dropbox.in:72
 msgid "Downloaded binary does not match Dropbox signature, aborting install."
 msgstr ""
-"Nedladdad binär matchar inte Dropbox-signaturen, avbryter installationen."
 
 #: caja-dropbox.in:73
 msgid ""
 "Could not start the Dropbox daemon. Make sure your computer meets the minimum requirements:\n"
 "https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 msgstr ""
-"Kunde inte starta Dropbox-daemonen. Kontrollera att din dator uppfyller minimumkraven:\n"
-"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
 
 #: caja-dropbox.in:78
 #, c-format
 msgid "Downloading Dropbox... %d%%"
-msgstr "Laddar ner Dropbox... %d%%"
+msgstr ""
 
 #: caja-dropbox.in:79
 #, c-format
 msgid "Unpacking Dropbox... %d%%"
-msgstr "Packar upp Dropbox... %d%%"
+msgstr ""
 
 #: caja-dropbox.in:451
 msgid "Dropbox Installation"
-msgstr "Dropbox Installation"
+msgstr ""
 
 #: caja-dropbox.in:512
 msgid "_Don't show this again"
-msgstr "_Visa inte detta igen"
+msgstr ""
 
 #: data/caja-dropbox.desktop.in:4
 msgid "Caja Dropbox"
-msgstr "Caja Dropbox"
+msgstr ""
 
 #: data/caja-dropbox.desktop.in:5
 msgid "File Synchronizer For Mate"
-msgstr "Filsynkroniserare för Mate"
+msgstr ""
 
 #: data/caja-dropbox.desktop.in:6
 msgid "Installs and launches proprietary Dropbox cloud software"
-msgstr "Installerar och startar proprietär Dropbox molnprogramvara"
+msgstr ""
 
 #: data/caja-dropbox.desktop.in:13
 msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
 msgstr ""
-"fil;synkronisering;delning;samarbete;moln;lagring;säkerhetskopiering; "
