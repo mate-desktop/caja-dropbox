@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR MATE Desktop Environment team
+# This file is distributed under the same license as the caja-dropbox package.
+# Priit Jõerüüt <jrtkbfdr@users.noreply.translate.fedoraproject.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: caja-dropbox 1.28.0\n"
+"Report-Msgid-Bugs-To: https://mate-desktop.org\n"
+"POT-Creation-Date: 2021-03-05 20:22+0100\n"
+"PO-Revision-Date: 2026-06-13 18:10+0000\n"
+"Last-Translator: Priit Jõerüüt "
+"<jrtkbfdr@users.noreply.translate.fedoraproject.org>\n"
+"Language-Team: Estonian <https://translate.fedoraproject.org/projects/mate-"
+"desktop/caja-dropbox/et/>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.6.1\n"
+
+#: caja-dropbox.in:67
+msgid ""
+"Dropbox is the easiest way to share and store your files online. Want to "
+"learn more? Head to"
+msgstr ""
+"Dropbox on lihtsaim viis oma faile veebis jagada ja salvestada. Soovid "
+"rohkem teada saada? Vaata"
+
+#: caja-dropbox.in:69
+msgid "In order to use Dropbox, you must download the proprietary daemon."
+msgstr ""
+"Dropboxi kasutamiseks pead alla laadima selle suletud lähtekoodiga "
+"taustaprogrammi."
+
+#: caja-dropbox.in:70
+msgid ""
+"Note: python-gpg (python-gpgme for Ubuntu 16.10 and lower) is not installed, "
+"we will not be able to verify binary signatures."
+msgstr ""
+"Märkus: kuna python-gpg (python-gpgme Ubuntu 16.10 ja varasemate versioonide "
+"puhul) pole paigaldatud, ei ole meil võimalik kontrollida binaarfailide "
+"allkirju."
+
+#: caja-dropbox.in:71
+msgid ""
+"Trouble connecting to Dropbox servers. Maybe your internet connection is "
+"down, or you need to set your http_proxy environment variable."
+msgstr ""
+"Dropboxi serveritega ühendamisel tekkisid probleemid. Võimalik, et su arvuti "
+"internetiühendus on katkenud või pead seadistama keskkonnamuutuja http_proxy."
+
+#: caja-dropbox.in:72
+msgid "Downloaded binary does not match Dropbox signature, aborting install."
+msgstr ""
+"Allalaaditud käsufaili allkiri ei vasta Dropboxi seadistuses näidatud "
+"allkirjale, järgnevaga paigaldus katkeb."
+
+#: caja-dropbox.in:73
+msgid ""
+"Could not start the Dropbox daemon. Make sure your computer meets the "
+"minimum requirements:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+msgstr ""
+"Dropboxi taustateenuse käivitamine ei õnnestunud. Palun kontrolli, et sinu "
+"arvuti vastab miinimumnõuetele:\n"
+"https://www.dropbox.com/help/desktop-web/system-requirements#desktop"
+
+#: caja-dropbox.in:78
+#, c-format
+msgid "Downloading Dropbox... %d%%"
+msgstr "Dropboxi tarkvara on allalaadimisel... %d%%"
+
+#: caja-dropbox.in:79
+#, c-format
+msgid "Unpacking Dropbox... %d%%"
+msgstr "Dropboxi tarkvara on lahtipakkimisel... %d%%"
+
+#: caja-dropbox.in:451
+msgid "Dropbox Installation"
+msgstr "Dropboxi paigaldus"
+
+#: caja-dropbox.in:512
+msgid "_Don't show this again"
+msgstr "Ära _näita seda uuesti"
+
+#: data/caja-dropbox.desktop.in:3
+msgid "Caja Dropbox"
+msgstr "Caja Dropbox"
+
+#: data/caja-dropbox.desktop.in:4
+msgid "File Synchronizer For Mate"
+msgstr "Failide sünkroonija Mate jaoks"
+
+#: data/caja-dropbox.desktop.in:5
+msgid "Installs and launches proprietary Dropbox cloud software"
+msgstr ""
+"Paigaldab ja käivitab Dropboxi pilveteenuse tarkvara suletud lähtekoodiga "
+"variandi"
+
+#: data/caja-dropbox.desktop.in:12
+msgid "file;synchronization;sharing;collaboration;cloud;storage;backup;"
+msgstr ""
+"file;synchronization;sharing;collaboration;cloud;storage;backup;fail;failid;sünkroonimine;sünkroniseerimine;koostöö;pilv;teenus;andmeruum;pilveruum;varundus;varukoopia;koostöö;ühistöö;"
